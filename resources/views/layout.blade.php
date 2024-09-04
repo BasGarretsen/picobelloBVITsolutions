@@ -19,7 +19,7 @@
         @yield('sidebar')
     </div>
     <footer>
-        <p>© Legoland Doetinchem B.V., alle rechten voorbehouden</p>
+        <p>footer</p>
     </footer>
 </body>
 </html>
