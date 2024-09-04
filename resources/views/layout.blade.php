@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     @vite(['resources/js/app.js', 'resources/js/script.js', 'resources/css/app.css'])
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <header>
