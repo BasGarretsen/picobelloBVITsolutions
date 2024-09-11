@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('activity_name');
             $table->string('location');
-            $table->boolean('including_food');
+            $table->string('including_food');
             $table->string('omschrijving');
             $table->timestamp('start_time')->nullable();
             $table->timestamp('end_time')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('maximum_number_of_participants');
             $table->integer('minimum_number_of_participants');
             $table->string('image');
-            $table->json('supplies');
+            $table->string('supplies');
         });
     }
 
