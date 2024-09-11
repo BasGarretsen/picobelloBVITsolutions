@@ -45,7 +45,7 @@
                 </div>
             </nav>
         </header>
-    <div class="container">
+    <div class="">
         @yield('content')
         @yield('sidebar')
     </div>
