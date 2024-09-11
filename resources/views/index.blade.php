@@ -2,13 +2,21 @@
 
 @section('content')
 
-<div class="container">
-    <h1>Open activiteiten</h1>
+    <content>
+        <h1>Open activiteiten</h1>
 
-    <table>
+        <section class="cards">
+            <!-- @foreach($activiteiten as $activiteit) -->
+            <div class="card">
+                <img src="" alt="Placeholder">
+                <br>
+                <h3>Activityname</h3>
+                <p>Locatie</p>
+                <p>Start tijd - Eind tijd</p>
+                <p>0/(maxDeelnemers)</p>
+            </div>
+            <!-- @endforeach -->
+        </section>
+    </content>
         
-    </table>
-
-</div>
-
 @endsection
