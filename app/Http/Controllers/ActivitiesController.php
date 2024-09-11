@@ -15,6 +15,15 @@ class ActivitiesController extends Controller
         //
     }
 
+    public function createFormRef()
+    {
+        if (Auth::user()->role === "admin") {
+            return view('activityForm');
+        } else {
+            return redirect()->route('dashboard');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */
