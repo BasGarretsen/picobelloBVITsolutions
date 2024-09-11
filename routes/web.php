@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\ActivitiesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,4 @@ Route::get('/login', [LoginRegisterController::class, 'login'])->name('login');
 Route::post('/authenticate', [LoginRegisterController::class, 'authenticate'])->name('authenticate');
 Route::get('/dashboard', [LoginRegisterController::class, 'dashboard'])->name('dashboard');
 Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
+Route::get('/activitiedetails', [ActivitiesController::class, 'showActivitieDetails'])->name('activitiedetails');

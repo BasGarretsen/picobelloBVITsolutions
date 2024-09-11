@@ -15,6 +15,14 @@ class ActivitiesController extends Controller
         //
     }
 
+        /**
+     * Show the form for creating a new resource.
+     */
+    public function showActivitieDetails()
+    {
+        return view('activitie_details');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
