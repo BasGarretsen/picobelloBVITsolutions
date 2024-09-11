@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->string('activity name');
+            $table->string('activity_name');
             $table->string('location');
             $table->boolean('including_food');
             $table->string('omschrijving');
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('end_time')->nullable();
             $table->double('kosten');
             $table->integer('maximum_number_of_participants');
-            $table->integer('minimum_number of_participants');
+            $table->integer('minimum_number_of_participants');
             $table->string('image');
             $table->json('supplies');
         });
