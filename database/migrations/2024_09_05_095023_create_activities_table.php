@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('activity_name');
             $table->string('location');
             $table->string('including_food');
-            $table->string('omschrijving');
+            $table->string('description');
             $table->timestamp('start_time')->nullable();
             $table->timestamp('end_time')->nullable();
             $table->double('kosten');
