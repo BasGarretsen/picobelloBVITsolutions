@@ -27,7 +27,7 @@
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium dark:text-white">Naam</label>
-                        <input type="text" name="name" id="name" class="text-black border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                        <input type="text" name="name" id="name" class="text-black border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                     </div>
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium dark:text-white">Wachtwoord</label>
