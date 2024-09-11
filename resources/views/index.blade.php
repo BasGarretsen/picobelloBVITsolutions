@@ -6,7 +6,7 @@
         <h1>Open activiteiten</h1>
 
         <section class="cards">
-            <!-- @foreach($activiteiten as $activiteit) -->
+            
             <div class="card">
                 <img src="" alt="Placeholder">
                 <br>
@@ -14,8 +14,12 @@
                 <p>Locatie</p>
                 <p>Start tijd - Eind tijd</p>
                 <p>0/(maxDeelnemers)</p>
-            </div>
-            <!-- @endforeach -->
+
+                <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                    Details
+                </button>
+            </div>    
+        
         </section>
     </content>
         
