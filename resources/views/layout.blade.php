@@ -15,7 +15,7 @@
     <header>
             <nav class="bg-[#f5af00] border-gray-200 px-4 lg:px-6 py-2.5">
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                    <a href="https://flowbite.com" class="flex items-center">
+                    <a href="/" class="flex items-center">
                         <img src="https://s3.eu-central-1.amazonaws.com/covadis/media/Logos/logo_covadis_2016.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
                     </a>
                     <div class="flex items-center lg:order-2">
@@ -45,14 +45,13 @@
                 </div>
             </nav>
         </header>
-    <div class="">
         @yield('content')
+        
         @yield('sidebar')
-    </div>
         <footer class="bg-[#f5af00]">
             <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <div class="sm:flex sm:items-center sm:justify-between">
-                    <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                         <img src="https://s3.eu-central-1.amazonaws.com/covadis/media/Logos/logo_covadis_2016.png" class="h-8" alt="Flowbite Logo" />
                     </a>
                     <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
@@ -71,7 +70,7 @@
                     </ul>
                 </div>
                 <hr class="my-6 sm:mx-auto lg:my-8" />
-                <span class="block text-sm text-white sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+                <span class="block text-sm text-white sm:text-center">© 2023 <a href="/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
             </div>
     </footer>
 </body>

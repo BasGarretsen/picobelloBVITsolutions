@@ -24,7 +24,6 @@ return new class extends Migration
             $table->integer('minimum_number_of_participants');
             $table->string('image');
             $table->string('supplies');
-            $table->timestamps();
         });
     }
 
