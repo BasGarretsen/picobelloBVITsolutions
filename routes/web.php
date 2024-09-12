@@ -25,4 +25,4 @@ Route::get('/login', [LoginRegisterController::class, 'login'])->name('login');
 Route::post('/authenticate', [LoginRegisterController::class, 'authenticate'])->name('authenticate');
 Route::get('/dashboard', [LoginRegisterController::class, 'dashboard'])->name('dashboard');
 Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
-Route::get('/activitiedetails', [ActivitiesController::class, 'showActivitieDetails'])->name('activitiedetails');
+Route::get('/activitydetails/{id}', [ActivitiesController::class, 'showActivityDetails'])->name('activitydetails');
