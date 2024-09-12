@@ -2,7 +2,18 @@
 
 @section('content')
 
-<form class="max-w-lg mx-auto bg-[#f5af00] my-10 p-10 rounded-2xl shadow-2xl">
+
+<form method="POST" action="{{ route('storeActivity') }}" class="max-w-lg mx-auto bg-[#f5af00] my-10 p-10 rounded-2xl shadow-2xl">
+    @csrf
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-center flex justify-center mx-auto text-red-400 px-4 py-3 my-3 rounded">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <h1 class="text-4xl text-white font-bold mb-4">Create activity</h1>
     <div class="grid grid-cols-2 gap-3">
         <div class="mb-5">
@@ -17,12 +28,12 @@
 
         <div class="mb-5">
             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Start time</label>
-            <input type="text" id="start_time" name="start_time" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            <input type="datetime-local" id="start_time" name="start_time" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">End time</label>
-            <input type="text" id="end_time" name="end_time" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            <input type="datetime-local" id="end_time" name="end_time" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
@@ -42,7 +53,7 @@
 
         <div class="mb-5">
             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Image</label>
-            <input type="file" id="activity_name" name="activity_name" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            <input type="text" id="image" name="image" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
