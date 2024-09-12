@@ -7,6 +7,10 @@ content {
     width: 100%;
 }
 
+content h1 {
+    font-size: 50px;
+}
+
 .cards {
     margin: 10px;
 }
@@ -16,8 +20,10 @@ content {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     border: 2px solid black;
     border-radius: 10px;
-    width: 20%;
+
     margin: 30px;
-}
+    padding: 10px;
+}   
