@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class activities extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'activity_name',
+       
+    ];
 }
