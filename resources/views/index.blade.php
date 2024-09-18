@@ -14,10 +14,12 @@
                 <p>{{$activity['location']}}</p>
                 <p>{{$activity['start_time']}} - {{$activity['end_time']}}</p>
                 <p>0/{{$activity['maximum_number_of_participants']}}</p>
-
-                <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                    Details
-                </button>
+            
+                <!-- <a href="/details"> -->
+                    <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                        Details
+                    </button>
+                <!-- </a> -->
             </div>    
         @endforeach
         </section>
