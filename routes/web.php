@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\ActivitiesController;
 use Illuminate\Support\Facades\Route;
