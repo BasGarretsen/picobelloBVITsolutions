@@ -47,13 +47,20 @@ class ActivitiesController extends Controller
             'description' => 'required',
             'start_time' => 'required|date|before:end_time',
             'end_time' => 'required|date',
-            'price' => 'required',
-            'maximum_participants' => 'required',
-            'minimum_participants' => 'required',
+            'price' => 'required|numeric',
+            'maximum_participants' => 'required|numeric',
+            'minimum_participants' => 'required|numeric',
             'image' => 'required',
             // 'supplies' => 'required'
         ]);
 
+        $employOnly = null;
+
+        if ($request->employOnly != null) {
+            $employOnly = true;
+        } else {
+            $employOnly = false;
+        }
 
         $activity = new Activities();
 
@@ -67,6 +74,7 @@ class ActivitiesController extends Controller
         $activity->maximum_number_of_participants = $validateData['maximum_participants'];
         $activity->minimum_number_of_participants = $validateData['minimum_participants'];
         $activity->image = $validateData['image'];
+        $activity->employees_only = $employOnly;
         // 'supplies' => $request->
 
         $activity->save();
