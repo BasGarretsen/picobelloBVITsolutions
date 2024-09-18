@@ -4,6 +4,18 @@
 
 <h1 class="font-bold text-4xl">Welcome {{ Auth::user()->name }}</h1>
 
+<a href="/create_activity">
+    <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                    Create Activity
+    </button>
+</a>
+
+<a href="/register">
+    <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                    Register User
+    </button>
+</a>
+
 <div class="overflow-x-auto sm:rounded-lg text-black my-10 mx-10 shadow-2xl">
     <table class="text-sm text-left rtl:text-right text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-yellow-400">
