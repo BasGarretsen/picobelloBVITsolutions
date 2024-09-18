@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\ActivitiesController;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,5 @@ Route::post('/authenticate', [LoginRegisterController::class, 'authenticate'])->
 Route::get('/dashboard', [LoginRegisterController::class, 'dashboard'])->name('dashboard');
 Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
 Route::get('/', [ActivitiesController::class, 'index'])->name('index');
+Route::get('/create_activity', [ActivitiesController::class, 'createFormRef'])->name('createFormRef');
+Route::post('/store_activity', [ActivitiesController::class, 'store'])->name('storeActivity');
