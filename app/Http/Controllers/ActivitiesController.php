@@ -14,7 +14,8 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
-        //
+        $activities = Activities::all();
+        return view('index', ['activities' => $activities]);
     }
 
     public function createFormRef()
