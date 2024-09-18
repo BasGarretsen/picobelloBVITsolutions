@@ -38,12 +38,12 @@
 
         <div class="mb-5">
             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Price</label>
-            <input type="text" id="price" name="price" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            <input type="text" id="price" name="price" value="0" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Minimum participants</label>
-            <input type="text" id="minimum_participants" name="minimum_participants" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            <input type="text" id="minimum_participants" value="0" name="minimum_participants" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">

@@ -46,9 +46,9 @@ class ActivitiesController extends Controller
             'description' => 'required',
             'start_time' => 'required|date|before:end_time',
             'end_time' => 'required|date',
-            'price' => 'required',
-            'maximum_participants' => 'required',
-            'minimum_participants' => 'required',
+            'price' => 'required|numeric',
+            'maximum_participants' => 'required|numeric',
+            'minimum_participants' => 'required|numeric',
             'image' => 'required',
             // 'supplies' => 'required'
         ]);
