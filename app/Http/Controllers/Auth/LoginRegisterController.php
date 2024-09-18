@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\activities;
 use App\Models\allowedips;
 use App\Models\contact;
 use App\Models\opentime;
@@ -109,7 +110,8 @@ class LoginRegisterController extends Controller
     public function dashboard()
     {
         if (Auth::check()) {
-            return view('dashboard');
+            $activities = activities::all();
+            return view('dashboard', ['activities' => $activities]);
         }
 
         return redirect()->route('login')

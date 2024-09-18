@@ -50,39 +50,40 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($activities as $activity)
             <tr class="bg-white border-b hover:bg-gray-50">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    1
+                    {{ $activity->id }}
                 </th>
                 <td class="px-6 py-4">
-                    Test
+                    {{ $activity->activity_name }}
                 </td>
                 <td class="px-6 py-4">
-                    Doetinchem
+                    {{ $activity->location }}
                 </td>
                 <td class="px-6 py-4">
-                    Yes
+                    {{ $activity->food_included ? 'Yes' : 'No' }}
                 </td>
                 <td class="px-6 py-4">
-                    12/12/2024 - 12:00
+                    {{ $activity->start_time }}
                 </td>
                 <td class="px-6 py-4">
-                    12/12/2024 - 14:00
+                    {{ $activity->end_time }}
                 </td>
                 <td class="px-6 py-4">
-                    $300
+                    {{ $activity->price }}
                 </td>
                 <td class="px-6 py-4">
-                    200
+                    {{ $activity->maximum_number_of_participants }}
                 </td>
                 <td class="px-6 py-4">
-                    10
+                    {{ $activity->minimum_number_of_participants }}
                 </td>
                 <td class="px-6 py-4">
-                    12/12/2024 - 12:00
+                    {{ $activity->updated_at }}
                 </td>
                 <td class="px-6 py-4">
-                    12/12/2024 - 14:00
+                    {{ $activity->created_at }}
                 </td>
                 <td class="px-6 py-4">
                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -91,6 +92,7 @@
                     <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
