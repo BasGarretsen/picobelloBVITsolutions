@@ -53,6 +53,13 @@ class ActivitiesController extends Controller
             // 'supplies' => 'required'
         ]);
 
+        $employOnly = null;
+
+        if ($request->employOnly != null) {
+            $employOnly = true;
+        } else {
+            $employOnly = false;
+        }
 
         $activity = new Activities();
 
@@ -66,6 +73,7 @@ class ActivitiesController extends Controller
         $activity->maximum_number_of_participants = $validateData['maximum_participants'];
         $activity->minimum_number_of_participants = $validateData['minimum_participants'];
         $activity->image = $validateData['image'];
+        $activity->employees_only = $employOnly;
         // 'supplies' => $request->
 
         $activity->save();
