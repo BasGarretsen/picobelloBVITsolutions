@@ -32,7 +32,17 @@ class ActivitiesController extends Controller
         }
     }
 
-    /**
+        /**
+     * Show the form for creating a new resource.
+     */
+    public function showActivityDetails(Request $request, $id)
+    {
+          $activity = activities::find($id);
+
+          return view('activity_details', compact('activity'));
+    }
+
+        /**
      * Show the form for creating a new resource.
      */
     public function create()

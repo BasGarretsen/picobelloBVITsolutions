@@ -19,11 +19,11 @@
                     <p>Max participants: {{$activity['maximum_number_of_participants']}}</p>
                 </div>
 
-                <!-- <a href="/details"> -->
+                <a href="/activitydetails/{{$activity['id']}}">
                 <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
                     Details
                 </button>
-                <!-- </a> -->
+                </a>
             </div>
             @endforeach
         </section>
