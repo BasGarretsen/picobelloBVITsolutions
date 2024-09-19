@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\ActivitiesController;
+use App\Http\Controllers\Auth\LoginRegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +25,4 @@ Route::get('/', [ActivitiesController::class, 'index'])->name('index');
 Route::get('/activitydetails/{id}', [ActivitiesController::class, 'showActivityDetails'])->name('activitydetails');
 Route::get('/create_activity', [ActivitiesController::class, 'createFormRef'])->name('createFormRef');
 Route::post('/store_activity', [ActivitiesController::class, 'store'])->name('storeActivity');
+Route::post('/delete', [ActivitiesController::class, 'destroy'])->name('delete');
