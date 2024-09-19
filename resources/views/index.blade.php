@@ -2,27 +2,32 @@
 
 @section('content')
 
-    <content>
-        <h1>Open activiteiten</h1>
+<content>
+    <h1 class="text-center font-bold text-4xl my-10 uppercase">Open activiteiten</h1>
 
-        <section class="cards">
-        @foreach($activities as $activity)            
-            <div class="card">
-                <img src="{{$activity['image']}}" alt="Placeholder">
+    <div class="flex justify-center">
+        <section class="cards block md:grid md:grid-cols-2 lg:grid-cols-3 my-10 gap-10">
+            @foreach($activities as $activity)
+            <div class="card bg-[#f5af00] w-72 rounded-2xl shadow-2xl my-10 md:my-0">
+                <img src="{{$activity['image']}}" alt="Placeholder" class="w-72 rounded-2xl p-4">
                 <br>
-                <h3>{{$activity['activity_name']}}</h3>
-                <p>{{$activity['location']}}</p>
-                <p>{{$activity['start_time']}} - {{$activity['end_time']}}</p>
-                <p>0/{{$activity['maximum_number_of_participants']}}</p>
-            
+                <div class="px-4 md:p-4 text-white">
+                    <h3 class="font-bold text-2xl pb-2">{{$activity['activity_name']}}</h3>
+                    <p>{{$activity['location']}}</p>
+                    <p>From: {{$activity['start_time']}}</p>
+                    <p>Until: {{$activity['end_time']}}</p>
+                    <p>Max participants: {{$activity['maximum_number_of_participants']}}</p>
+                </div>
+
                 <!-- <a href="/details"> -->
-                    <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                        Details
-                    </button>
+                <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
+                    Details
+                </button>
                 <!-- </a> -->
-            </div>    
-        @endforeach
+            </div>
+            @endforeach
         </section>
-    </content>
-        
+    </div>
+</content>
+
 @endsection

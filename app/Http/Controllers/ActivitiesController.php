@@ -14,7 +14,12 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
-        $activities = Activities::all();
+        if (Auth::check()) {
+            $activities = activities::all();
+        } else {
+            $activities = activities::where('employees_only', false)->get();
+        }
+
         return view('index', ['activities' => $activities]);
     }
 
