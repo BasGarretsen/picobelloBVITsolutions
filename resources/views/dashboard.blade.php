@@ -9,13 +9,13 @@
     <div class="buttonDiv">
         <a href="/create_activity">
             <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                            Create Activity
+                Create Activity
             </button>
         </a>
 
         <a href="/register">
             <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                            Register User
+                Register User
             </button>
         </a>
     </div>
@@ -104,7 +104,11 @@
                         <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                     </td>
                     <td class="px-6 py-4">
-                        <a href="/delete" class="text-red-600 hover:text-red-900">Delete</a>
+                        <form action="{{ route('activity.destroy', $activity->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

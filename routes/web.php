@@ -24,4 +24,4 @@ Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout
 Route::get('/', [ActivitiesController::class, 'index'])->name('index');
 Route::get('/create_activity', [ActivitiesController::class, 'createFormRef'])->name('createFormRef');
 Route::post('/store_activity', [ActivitiesController::class, 'store'])->name('storeActivity');
-Route::post('/delete', [ActivitiesController::class, 'destroy'])->name('delete');
+Route::delete('/delete_activity/{id}', [ActivitiesController::class, 'destroy'])->name('activity.destroy');
