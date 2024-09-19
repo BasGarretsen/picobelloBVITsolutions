@@ -14,7 +14,12 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
-        $activities = Activities::all();
+        if (Auth::check()) {
+            $activities = activities::all();
+        } else {
+            $activities = activities::where('employees_only', false)->get();
+        }
+
         return view('index', ['activities' => $activities]);
     }
 
@@ -109,8 +114,11 @@ class ActivitiesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(activities $activities)
+    public function destroy(activities $activities, $id)
     {
-        //
+        $activity = activities::find($id);
+        $activity->delete();
+
+        return redirect()->route('dashboard');
     }
 }
