@@ -24,4 +24,10 @@ Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout
 Route::get('/', [ActivitiesController::class, 'index'])->name('index');
 Route::get('/create_activity', [ActivitiesController::class, 'createFormRef'])->name('createFormRef');
 Route::post('/store_activity', [ActivitiesController::class, 'store'])->name('storeActivity');
+<<<<<<< HEAD
 Route::delete('/delete_activity/{id}', [ActivitiesController::class, 'destroy'])->name('activity.destroy');
+=======
+Route::get('/dashboard/edit/{id}', [ActivitiesController::class, 'edit'])->name('activities.edit');
+Route::put('/dashboard/update/{id}', [ActivitiesController::class, 'update'])->name('activities.update');
+
+>>>>>>> dashboard

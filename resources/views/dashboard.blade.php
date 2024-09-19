@@ -19,7 +19,7 @@
             </button>
         </a>
     </div>
-    <div style="width: max-content;" class="overflow-x-auto sm:rounded-lg text-black my-10 mx-10 shadow-2xl">
+    <div style="max-width: 95%; width: max-content;" class="overflow-x-auto sm:rounded-lg text-black my-10 mx-10 shadow-2xl">
         <table class="text-sm text-left rtl:text-right text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-yellow-400">
                 <tr>
@@ -51,6 +51,9 @@
                         Min participants
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Employees only
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Updated at
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -66,6 +69,13 @@
             </thead>
             <tbody>
                 @foreach ($activities as $activity)
+                @php
+                    $employOnly = "No";
+
+                    if ($activity->employees_only) {
+                        $employOnly = "Yes";
+                    }
+                @endphp
                 <tr class="bg-white border-b hover:bg-gray-50">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ $activity->id }}
@@ -93,6 +103,9 @@
                     </td>
                     <td class="px-6 py-4">
                         {{ $activity->minimum_number_of_participants }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $employOnly }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $activity->updated_at }}
