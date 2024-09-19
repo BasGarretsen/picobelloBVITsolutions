@@ -114,8 +114,11 @@ class ActivitiesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(activities $activities)
+    public function destroy(activities $activities, $id)
     {
-        //
+        $activity = Acttivties::find($id);
+        $activity->delete();
+
+        return redirect()->route('dashboard');
     }
 }
