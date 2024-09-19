@@ -84,24 +84,61 @@ class ActivitiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(activities $activities)
+    public function edit($id)
     {
-        //
+        $activity = activities::findOrFail($id);
+
+        return view('edit-activities', compact('activity'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, activities $activities)
-    {
-        //
+    public function update(Request $request, $id)
+{
+    $activity = activities::findOrFail($id);
+
+    // Define validation rules
+    $rules = [
+        'activity_name' => 'sometimes|required|min:3',
+        'location' => 'sometimes|required',
+        'including_food' => 'sometimes|required',
+        'description' => 'sometimes|required',
+        'start_time' => 'sometimes|required|date|before:end_time',
+        'end_time' => 'sometimes|required|date',
+        'price' => 'sometimes|required',
+        'maximum_number_of_participants' => 'sometimes|required',
+        'minimum_number_of_participants' => 'sometimes|required',
+        'image' => 'sometimes|required',
+        'supplies' => 'sometimes|required',
+    ];
+
+    $this->validate($request, $rules);
+
+    $activity->activity_name = $request->input('activity_name', $activity->activity_name);
+    $activity->location = $request->input('location', $activity->location);
+    $activity->including_food = $request->input('including_food', $activity->including_food);
+    $activity->description = $request->input('description', $activity->description);
+    $activity->start_time = $request->input('start_time', $activity->start_time);
+    $activity->end_time = $request->input('end_time', $activity->end_time);
+    $activity->price = $request->input('price', $activity->price);
+    $activity->maximum_number_of_participants = $request->input('maximum_number_of_participants', $activity->maximum_number_of_participants);
+    $activity->minimum_number_of_participants = $request->input('minimum_number_of_participants', $activity->minimum_number_of_participants);
+    $activity->image = $request->input('image', $activity->image);
+    $activity->supplies = $request->input('supplies', $activity->supplies);
+
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $filename = $file->hashName();
+        $activity->image = $filename;
     }
 
+    $activity->save();
+
+    return redirect()->route('dashboard');
+}
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(activities $activities)
-    {
-        //
-    }
+    
 }

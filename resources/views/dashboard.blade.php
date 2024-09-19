@@ -21,7 +21,7 @@
                     Food included?
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Start time
+                    Start time 
                 </th>
                 <th scope="col" class="px-6 py-3">
                     End time
@@ -86,7 +86,7 @@
                     {{ $activity->created_at }}
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                    <a href="{{ route('activities.edit', $activity->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                 </td>
                 <td class="px-6 py-4">
                     <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
@@ -96,5 +96,7 @@
         </tbody>
     </table>
 </div>
+
+        
 
 @endsection

@@ -23,7 +23,17 @@ content h1 {
 
     border: 2px solid black;
     border-radius: 10px;
+    margin: 30px;
+}
 
+.card-dashboard{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
     margin: 30px;
     padding: 10px;
 }   

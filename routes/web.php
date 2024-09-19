@@ -27,4 +27,6 @@ Route::get('/dashboard', [LoginRegisterController::class, 'dashboard'])->name('d
 Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
 Route::get('/create_activity', [ActivitiesController::class, 'createFormRef'])->name('createFormRef');
 Route::post('/store_activity', [ActivitiesController::class, 'store'])->name('storeActivity');
+Route::get('/dashboard/edit/{id}', [ActivitiesController::class, 'edit'])->name('activities.edit');
+Route::put('/dashboard/update/{id}', [ActivitiesController::class, 'update'])->name('activities.update');
 
