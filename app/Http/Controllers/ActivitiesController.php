@@ -116,7 +116,7 @@ class ActivitiesController extends Controller
      */
     public function destroy(activities $activities, $id)
     {
-        $activity = Acttivties::find($id);
+        $activity = activties::find($id);
         $activity->delete();
 
         return redirect()->route('dashboard');
