@@ -70,7 +70,7 @@
                     </ul>
                 </div>
                 <hr class="my-6 sm:mx-auto lg:my-8" />
-                <span class="block text-sm text-white sm:text-center">© 2023 <a href="/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+                <span class="block text-sm text-white sm:text-center">© 2023 <a href="https://covadis.nl/" class="hover:underline">Covadis™</a>. All Rights Reserved.</span>
             </div>
     </footer>
 </body>

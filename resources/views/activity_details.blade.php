@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="activityDetail">
     <div class="bg-yellow-500 text-white font-bold py-2 px-4 rounded m-[25px] lg:m-[50px] flex-col lg:flex-row flex ">
         <div class="lg:w-[50%] h-auto p-[15px] lg:p-[30px]">
             <img src="{{ $activity->image }}" class="w-full rounded-2xl" alt="There used to be an image here">
