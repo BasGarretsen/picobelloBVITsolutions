@@ -69,6 +69,12 @@
             <option value="no" {{ old('including_food', $activity->including_food) === 'no' ? 'selected' : '' }}>No</option>
             </select>
         </div>
+
+        <div class="mb-5">
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Employee only</label>
+            <input type="checkbox" id="image" name="employOnly" placeholder="Image URL"/>
+        </div>
+        
     </div>
 
     <div class="mb-5">
