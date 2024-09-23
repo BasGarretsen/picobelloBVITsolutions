@@ -71,8 +71,8 @@
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Employee only</label>
-            <input type="checkbox" id="image" name="employOnly" placeholder="Image URL"/>
+            <label for="employee_only" class="block mb-2 text-sm font-medium text-gray-900 text-white">Employee Only</label>
+            <input type="checkbox" id="employee_only" name="employee_only" {{ isset($activity) && $activity->employees_only ? 'checked' : '' }} />
         </div>
         
     </div>

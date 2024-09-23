@@ -54,48 +54,41 @@ class ActivitiesController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $validateData = $request->validate([
-            'activity_name' => 'required',
-            'location' => 'required',
-            'food_included' => 'required',
-            'description' => 'required',
-            'start_time' => 'required|date|before:end_time',
-            'end_time' => 'required|date',
-            'price' => 'required|numeric',
-            'maximum_participants' => 'required|numeric',
-            'minimum_participants' => 'required|numeric',
-            'image' => 'required',
-            // 'supplies' => 'required'
-        ]);
+{
+    $validateData = $request->validate([
+        'activity_name' => 'required',
+        'location' => 'required',
+        'food_included' => 'required',
+        'description' => 'required',
+        'start_time' => 'required|date|before:end_time',
+        'end_time' => 'required|date',
+        'price' => 'required|numeric',
+        'maximum_participants' => 'required|numeric',
+        'minimum_participants' => 'required|numeric',
+        'image' => 'required',
+    ]);
 
-        $employOnly = null;
+    $employeeOnly = $request->has('employee_only');
 
-        if ($request->employOnly != null) {
-            $employOnly = true;
-        } else {
-            $employOnly = false;
-        }
+    $activity = new Activities();
 
-        $activity = new Activities();
+    $activity->activity_name = $validateData['activity_name'];
+    $activity->location = $validateData['location'];
+    $activity->including_food = $validateData['food_included'];
+    $activity->description = $validateData['description'];
+    $activity->start_time = $validateData['start_time'];
+    $activity->end_time = $validateData['end_time'];
+    $activity->price = $validateData['price'];
+    $activity->maximum_number_of_participants = $validateData['maximum_participants'];
+    $activity->minimum_number_of_participants = $validateData['minimum_participants'];
+    $activity->image = $validateData['image'];
+    $activity->employees_only = $employeeOnly;
 
-        $activity->activity_name = $validateData['activity_name'];
-        $activity->location = $validateData['location'];
-        $activity->including_food = $validateData['food_included'];
-        $activity->description = $validateData['description'];
-        $activity->start_time = $validateData['start_time'];
-        $activity->end_time = $validateData['end_time'];
-        $activity->price = $validateData['price'];
-        $activity->maximum_number_of_participants = $validateData['maximum_participants'];
-        $activity->minimum_number_of_participants = $validateData['minimum_participants'];
-        $activity->image = $validateData['image'];
-        $activity->employees_only = $employOnly;
-        // 'supplies' => $request->
+    $activity->save();
 
-        $activity->save();
+    return redirect()->route('dashboard');
+}
 
-        return redirect()->route('dashboard');
-    }
 
     /**
      * Display the specified resource.
@@ -122,7 +115,6 @@ class ActivitiesController extends Controller
 {
     $activity = activities::findOrFail($id);
 
-    // Define validation rules
     $rules = [
         'activity_name' => 'sometimes|required|min:3',
         'location' => 'sometimes|required',
@@ -134,7 +126,6 @@ class ActivitiesController extends Controller
         'maximum_number_of_participants' => 'sometimes|required',
         'minimum_number_of_participants' => 'sometimes|required',
         'image' => 'sometimes|required',
-        'supplies' => 'sometimes|required',
     ];
 
     $this->validate($request, $rules);
@@ -149,7 +140,9 @@ class ActivitiesController extends Controller
     $activity->maximum_number_of_participants = $request->input('maximum_number_of_participants', $activity->maximum_number_of_participants);
     $activity->minimum_number_of_participants = $request->input('minimum_number_of_participants', $activity->minimum_number_of_participants);
     $activity->image = $request->input('image', $activity->image);
-    $activity->supplies = $request->input('supplies', $activity->supplies);
+
+    // Handle the employee_only field
+    $activity->employees_only = $request->has('employee_only');
 
     if ($request->hasFile('image')) {
         $file = $request->file('image');

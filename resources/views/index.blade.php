@@ -9,13 +9,13 @@
         <section class="cards block md:grid md:grid-cols-2 lg:grid-cols-3 my-10 gap-10">
             @foreach($activities as $activity)
             <div class="card bg-[#f5af00] w-72 rounded-2xl shadow-2xl my-10 md:my-0">
-                <img src="{{$activity['image']}}" alt="Placeholder" class="w-72 rounded-2xl p-4">
+                <img style="height: 200px" src="{{$activity['image']}}" alt="Placeholder" class="w-72 rounded-2xl p-4">
                 <br>
                 <div class="px-4 md:p-4 text-white">
                     <h3 class="font-bold text-2xl pb-2">{{$activity['activity_name']}}</h3>
                     <p>Location: <span class="text-black">{{$activity['location']}}</span></p>
-                    <p>From: <span class="text-black">{{$activity['start_time']}}</span></p>
-                    <p>Until: <span class="text-black">{{$activity['end_time']}}</span></p>
+                    <p>Start time: <span class="text-black">{{$activity['start_time']}}</span></p>
+                    <p>End time: <span class="text-black">{{$activity['end_time']}}</span></p>
                     <p>Max participants: <span class="text-black">{{$activity['maximum_number_of_participants']}}</span></p>
                 </div>
 
