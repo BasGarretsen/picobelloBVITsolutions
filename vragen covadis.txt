@@ -1,29 +1,30 @@
-dashboard
+==dashboard==
 
-sorteer per catagorie
-filter
-zoekbalk
-catagorien samenvoegen
+Sorteer per kolom 
+Filteren op kolommene
+Zoekfunctie 
+Categorien van zelfde soort samenvoegen
 
 ==activiteit toevoegen/aanpassen==
 
-confirmatie
-image url veranderen naar uploaden
-einddatum niet selecteren onder begin datum
+Image url text field veranderen naar image upload input
+Datums eerder dan begindatum niet selecteerbaar in eindedatum input
+Confirmatie bericht tonen bij aanmaken of aanpassen (ook bij gebruiker) - klaar.
 
 
 ==Inschrijving activiteit==
 
-alles
+Inschrijving voor gebruikers op activiteit
+Aantal mensen die ingeschreven staan in zien bij activiteiten overzicht/details.
 
 
 ==detail pagina==
 
-text vervangen door icoon
+Categorie namen vervangen door passende icoontjes.
 
 
 ==algemeen==
 
-alles nederlands
-footer weg - check
-in header dashboard link
+Engelstalige benamingen vertalen naar Nederlands.
+Footer verwijderen - klaar.
+Link naar dashboard in de header 
