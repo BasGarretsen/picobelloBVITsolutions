@@ -3,6 +3,14 @@
 @section('content')
 
 <div style="display: flex; flex-direction: column; align-items: center;" class="my-10">
+
+    @if (session('success'))
+    <div class="bg-green-100 border border-green-400 text-center w-1/3 flex justify-center mx-auto text-green-700 px-4 py-3 my-3 rounded" role="alert">
+        <strong class="font-bold pr-2">Success!</strong>
+        <span class="block sm:inline">{{ session('success') }}</span>
+    </div>
+    @endif
+
     <div class="buttonDiv">
         <a href="/create_activity">
             <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
@@ -67,11 +75,11 @@
             <tbody>
                 @foreach ($activities as $activity)
                 @php
-                    $employOnly = "No";
+                $employOnly = "No";
 
-                    if ($activity->employees_only) {
-                        $employOnly = "Yes";
-                    }
+                if ($activity->employees_only) {
+                $employOnly = "Yes";
+                }
                 @endphp
                 <tr class="bg-white border-b hover:bg-gray-50">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">

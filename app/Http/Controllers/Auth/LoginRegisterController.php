@@ -65,7 +65,7 @@ class LoginRegisterController extends Controller
         ]);
 
         return redirect()->route('dashboard')
-            ->withSuccess('Je bent geregistreerd!');
+            ->withSuccess('Account aangemaakt!');
     }
 
     /**

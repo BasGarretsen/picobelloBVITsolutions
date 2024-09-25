@@ -95,6 +95,7 @@ class ActivitiesController extends Controller
 
     $activity->save();
 
+    session()->flash('success', 'De activiteit is aangemaakt!');
     return redirect()->route('dashboard');
 }
 
