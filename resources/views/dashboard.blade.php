@@ -42,10 +42,10 @@
                         Price
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Max participants
+                        Min participants
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Min participants
+                        Max participants
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Employees only
