@@ -1,0 +1,29 @@
+dashboard
+
+sorteer per catagorie
+filter
+zoekbalk
+catagorien samenvoegen
+
+==activiteit toevoegen/aanpassen==
+
+confirmatie
+image url veranderen naar uploaden
+einddatum niet selecteren onder begin datum
+
+
+==Inschrijving activiteit==
+
+alles
+
+
+==detail pagina==
+
+text vervangen door icoon
+
+
+==algemeen==
+
+alles nederlands
+footer weg - check
+in header dashboard link
