@@ -162,6 +162,7 @@ class ActivitiesController extends Controller
 
     $activity->save();
 
+    session()->flash('success', 'De activiteit is geüpdate!');
     return redirect()->route('dashboard');
 }
     /**
@@ -174,6 +175,7 @@ class ActivitiesController extends Controller
             $activity->delete();
         }
 
+        session()->flash('success', 'De activiteit is verwijderd!');
         return redirect()->route('dashboard');
     }
 }
