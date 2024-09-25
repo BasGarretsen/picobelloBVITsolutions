@@ -18,6 +18,7 @@
                 <li>Price: <span class="text-black font-normal">{{ number_format($activity->price, 2) }}</span></li>
                 <li>Max. deelnemers: <span class="text-black font-normal">{{ $activity->maximum_number_of_participants }}</span></li>
                 <li>Min. deelnemers: <span class="text-black font-normal">{{ $activity->minimum_number_of_participants }}</span></li>
+                <li>Aantal inschrijvingen: <span class="text-black font-normal">placeholder data</span></li>
                 @if ($activity->supplies != null)
                     <li class="mt-2">Benodigdheden:</li>
                     <li class="text-black font-normal">{{ $activity->supplies }}</li>
