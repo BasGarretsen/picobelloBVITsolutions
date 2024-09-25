@@ -111,7 +111,11 @@ class LoginRegisterController extends Controller
     {
         if (Auth::check()) {
             $activities = activities::all();
-            return view('dashboard', ['activities' => $activities]);
+            if (Auth::user()->role === 'admin') {
+                return view('dashboard', ['activities' => $activities]);
+            }else{
+                return redirect()->route('index', ['activities' => $activities]);
+            }
         }
 
         return redirect()->route('login')
