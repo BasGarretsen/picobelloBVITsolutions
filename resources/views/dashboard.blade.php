@@ -50,10 +50,10 @@
                         Price
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Max participants
+                        Min participants
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Min participants
+                        Max participants
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Employees only
@@ -104,10 +104,10 @@
                         {{ $activity->price }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->maximum_number_of_participants }}
+                        {{ $activity->minimum_number_of_participants }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->minimum_number_of_participants }}
+                        {{ $activity->maximum_number_of_participants }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $employOnly }}
