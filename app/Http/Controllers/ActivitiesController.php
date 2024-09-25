@@ -25,10 +25,19 @@ class ActivitiesController extends Controller
 
     public function createFormRef()
     {
-        if (Auth::user()->role === "admin") {
-            return view('activityForm');
+        if (Auth::check()) {
+            if(Auth::user()->role === 'admin') {
+                return view('activityForm');
+            }
+            else {
+                return redirect()->route('dashboard')->withErrors([
+                    'email' => 'U bent niet bevoegd om een activiteit aan te maken.',
+                ]);
+            }
         } else {
-            return redirect()->route('dashboard');
+            return redirect()->route('login')->withErrors([
+                'email' => 'U moet ingelogd zijn.',
+            ]);
         }
     }
 

@@ -116,7 +116,7 @@ class LoginRegisterController extends Controller
 
         return redirect()->route('login')
             ->withErrors([
-                'email' => 'Je moet ingelogd zijn om het dashboard te bekijken.',
+                'email' => 'U moet ingelogd zijn om het dashboard te bekijken.',
             ])->onlyInput('email');
     }
 
