@@ -10,6 +10,7 @@ Categorien van zelfde soort samenvoegen
 Image url text field veranderen naar image upload input
 Datums eerder dan begindatum niet selecteerbaar in eindedatum input
 Confirmatie bericht tonen bij aanmaken of aanpassen (ook bij gebruiker) - klaar.
+Bij foutmelding data behouden.
 
 
 ==Inschrijving activiteit==
