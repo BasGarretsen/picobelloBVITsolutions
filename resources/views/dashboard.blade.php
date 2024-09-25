@@ -14,13 +14,13 @@
     <div class="buttonDiv">
         <a href="/create_activity">
             <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                Create Activity
+                Activiteit aanmaken
             </button>
         </a>
 
         <a href="/register">
             <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                Register User
+                Gebruiker registreren
             </button>
         </a>
     </div>
