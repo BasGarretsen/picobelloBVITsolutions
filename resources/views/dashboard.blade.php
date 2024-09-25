@@ -32,43 +32,43 @@
                         ID
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Activity name
+                        Activiteit naam
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Location
+                        Locatie
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Food included?
+                        Eten inbegrepen?
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Start time
+                        Start tijd
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        End time
+                        Eind tijd
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Price
+                        Prijs
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Min participants
+                        Min deelnemers
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Max participants
+                        Max deelnemers
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Employees only
+                        Alleen werknemers
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Updated at
+                        Upgedate op
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Created at
+                        Aangemaakt op 
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Edit
+                        Bewerken
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Delete
+                        Verwijderen
                     </th>
                 </tr>
             </thead>
@@ -92,7 +92,7 @@
                         {{ $activity->location }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->food_included ? 'Yes' : 'No' }}
+                        {{ $activity->food_included ? 'Ja' : 'Nee' }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $activity->start_time }}
