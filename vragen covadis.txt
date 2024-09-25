@@ -16,6 +16,12 @@ einddatum niet selecteren onder begin datum
 
 alles
 
+
+==detail pagina==
+
+text vervangen door icoon
+
+
 ==algemeen==
 
 alles nederlands
