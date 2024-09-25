@@ -14,64 +14,64 @@
             </ul>
         </div>
     @endif
-    <h1 class="text-4xl text-white font-bold mb-4">Create activity</h1>
+    <h1 class="text-4xl text-white font-bold mb-4">Activiteit aanmaken</h1>
     <div class="grid grid-cols-2 gap-3">
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Activity name</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Activiteit naam</label>
             <input type="text" id="activity_name" name="activity_name" placeholder="Activity name" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Location</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Locatie</label>
             <input type="text" id="location" name="location" placeholder="Location" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Start time</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Start tijd</label>
             <input type="datetime-local" id="start_time" name="start_time" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required min="{{ now()->format('Y-m-d\TH:i') }}"/>
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">End time</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Eind tijd</label>
             <input type="datetime-local" id="end_time" name="end_time" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required min="{{ now()->format('Y-m-d\TH:i') }}"/>
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Price</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Prijs</label>
             <input type="text" id="price" name="price" value="0" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Minimum participants</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Minimale deelnemers</label>
             <input type="text" id="minimum_participants" value="0" name="minimum_participants" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Maximum participants</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Maximale deelnemers</label>
             <input type="text" id="maximum_participants" placeholder="Maximum participants" name="maximum_participants" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Image</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Foto</label>
             <input type="text" id="image" name="image" placeholder="Image URL" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
         <div class="mb-5">
-            <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 text-white">Food included</label>
+            <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 text-white">Eten inbegrepen</label>
             <select name="food_included" style="width: 100px">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
+                <option value="nee">Nee</option>
+                <option value="ja">Ja</option>
             </select>
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Employee only</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Alleen werknemers</label>
             <input type="checkbox" id="image" name="employOnly" placeholder="Image URL"/>
         </div>
     </div>
 
     <div class="mb-5">
-        <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Description</label>
+        <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Beschrijving</label>
         <textarea type="text" id="description" placeholder="Activity description" name="description" class="h-32 shadow-sm border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required></textarea>
     </div>
 

@@ -13,10 +13,10 @@
                 <br>
                 <div class="px-4 md:p-4 text-white">
                     <h3 class="font-bold text-2xl pb-2">{{$activity['activity_name']}}</h3>
-                    <p>Location: <span class="text-black">{{$activity['location']}}</span></p>
-                    <p>Start time: <span class="text-black">{{$activity['start_time']}}</span></p>
-                    <p>End time: <span class="text-black">{{$activity['end_time']}}</span></p>
-                    <p>Max participants: <span class="text-black">{{$activity['maximum_number_of_participants']}}</span></p>
+                    <p>Locatie: <span class="text-black">{{$activity['location']}}</span></p>
+                    <p>Start tijd: <span class="text-black">{{$activity['start_time']}}</span></p>
+                    <p>Eind tijd: <span class="text-black">{{$activity['end_time']}}</span></p>
+                    <p>Max deelnemers: <span class="text-black">{{$activity['maximum_number_of_participants']}}</span></p>
                 </div>
 
                 <a href="/activitydetails/{{$activity['id']}}">
