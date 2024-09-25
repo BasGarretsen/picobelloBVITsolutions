@@ -17,6 +17,7 @@
                     <p>Start tijd: <span class="text-black">{{$activity['start_time']}}</span></p>
                     <p>Eind tijd: <span class="text-black">{{$activity['end_time']}}</span></p>
                     <p>Max deelnemers: <span class="text-black">{{$activity['maximum_number_of_participants']}}</span></p>
+                    <p>Aantal inschrijvingen: <span class="text-black">placeholder data</span></p>
                 </div>
 
                 <a href="/activitydetails/{{$activity['id']}}">
