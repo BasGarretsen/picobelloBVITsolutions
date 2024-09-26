@@ -15,7 +15,7 @@
                 
                 <li><span class="material-icons">schedule</span>: <span class="text-black font-normal">{{ $activity->start_time }}</span></li>
                 <li><span class="material-icons">alarm_off</span>: <span class="text-black font-normal">{{ $activity->end_time }}</span></li>
-                <li><span class="material-icons">payment</span>: <span class="text-black font-normal">{{ number_format($activity->price, 2) }}</span></li>
+                <li><span class="material-icons">euro</span>: <span class="text-black font-normal">{{ number_format($activity->price, 2) }}</span></li>
                 <li><span class="material-icons">group</span>: <span class="text-black font-normal">{{ $activity->maximum_number_of_participants }}</span></li>
                 <li><span class="material-icons">person</span>: <span class="text-black font-normal">{{ $activity->minimum_number_of_participants }}</span></li>
                 <li>Aantal inschrijvingen: <span class="text-black font-normal">placeholder data</span></li>

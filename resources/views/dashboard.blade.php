@@ -47,7 +47,7 @@
                         <span class="material-icons">alarm_off</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        <span class="material-icons">payment</span>
+                        <span class="material-icons">euro</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
                         <span class="material-icons">person</span>
