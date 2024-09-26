@@ -21,7 +21,14 @@ class LoginRegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except([
-            'logout', 'dashboard', 'userdashboard', 'register', 'store'
+            'logout',
+            'dashboard',
+            'userdashboard',
+            'register',
+            'store',
+            'editUser',
+            'updateUser',
+            'destroyUser'
         ]);
     }
 
@@ -32,7 +39,7 @@ class LoginRegisterController extends Controller
      */
     public function register()
     {
-        if (Auth::user()->role === 'admin') {
+        if (Auth::user()->role === 'admin' || Auth::user()->role === 'owner'  ) {
             return view('register');
         } else {
             return redirect()->route('login')
@@ -111,9 +118,9 @@ class LoginRegisterController extends Controller
     {
         if (Auth::check()) {
             $activities = activities::all();
-            if (Auth::user()->role === 'admin') {
+            if (Auth::user()->role === 'admin' || Auth::user()->role === 'owner'  ) {
                 return view('dashboard', ['activities' => $activities]);
-            }else{
+            } else {
                 return redirect()->route('index', ['activities' => $activities]);
             }
         }
@@ -122,6 +129,56 @@ class LoginRegisterController extends Controller
             ->withErrors([
                 'email' => 'U moet ingelogd zijn om het dashboard te bekijken.',
             ])->onlyInput('email');
+    }
+
+    public function userdashboard()
+    {
+        if (Auth::check()) {
+            $users = User::all();
+            if (Auth::user()->role === 'admin' || Auth::user()->role === 'owner'  ) {
+                return view('userdashboard', ['users' => $users]);
+            } else {
+                return redirect()->route('index');
+            }
+        }
+
+        return redirect()->route('login')
+            ->withErrors([
+                'email' => 'U moet ingelogd zijn om het dashboard te bekijken.',
+            ])->onlyInput('email');
+    }
+
+    public function editUser($id)
+    {
+        $user = User::findOrFail($id);
+        $roles = ['admin', 'user'];
+
+        return view('edit_user', compact('user', 'roles'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'name' => 'required|string|max:255',
+            'role' => 'required|string',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->email = $request->input('email');
+        $user->name = $request->input('name');
+        $user->role = $request->input('role');
+        $user->save();
+
+        return redirect()->route('userdashboard')->with('success', 'De gebruiker is geüpdate.');
+    }
+
+    public function destroyUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('userdashboard')->with('success', 'De gebruiker is verwijderd.');
     }
 
     /**
