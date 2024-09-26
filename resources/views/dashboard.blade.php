@@ -38,22 +38,22 @@
                         <span class="material-icons">pin_drop</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Eten inbegrepen?
+                        <span class="material-icons">restaurant</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Start tijd
+                        <span class="material-icons">schedule</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Eind tijd
+                        <span class="material-icons">alarm_off</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Prijs
+                        <span class="material-icons">payment</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Min deelnemers
+                        <span class="material-icons">person</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Max deelnemers
+                        <span class="material-icons">group</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Alleen werknemers

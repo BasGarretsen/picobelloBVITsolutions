@@ -10,14 +10,14 @@
         <div class="lg:w-[50%] h-auto p-[15px] lg:p-[30px]">
             <h2 class="text-4xl font-bold mb-4">{{ $activity->activity_name }}</h2>
             <ul class="max-w-full">
-                <li>Locatie: <span class="text-black font-normal">{{ $activity->location }}</li>
-                <li>Eten inbegrepen: <span class="text-black font-normal">{{ $activity->including_food }}</li>
+                <li><span class="material-icons">pin_drop</span>: <span class="text-black font-normal">{{ $activity->location }}</li>
+                <li><span class="material-icons">restaurant</span>: <span class="text-black font-normal">{{ $activity->including_food }}</li>
                 
-                <li>Start tijd: <span class="text-black font-normal">{{ $activity->start_time }}</span></li>
-                <li>End tijd: <span class="text-black font-normal">{{ $activity->end_time }}</span></li>
-                <li>Price: <span class="text-black font-normal">{{ number_format($activity->price, 2) }}</span></li>
-                <li>Max. deelnemers: <span class="text-black font-normal">{{ $activity->maximum_number_of_participants }}</span></li>
-                <li>Min. deelnemers: <span class="text-black font-normal">{{ $activity->minimum_number_of_participants }}</span></li>
+                <li><span class="material-icons">schedule</span>: <span class="text-black font-normal">{{ $activity->start_time }}</span></li>
+                <li><span class="material-icons">alarm_off</span>: <span class="text-black font-normal">{{ $activity->end_time }}</span></li>
+                <li><span class="material-icons">payment</span>: <span class="text-black font-normal">{{ number_format($activity->price, 2) }}</span></li>
+                <li><span class="material-icons">group</span>: <span class="text-black font-normal">{{ $activity->maximum_number_of_participants }}</span></li>
+                <li><span class="material-icons">person</span>: <span class="text-black font-normal">{{ $activity->minimum_number_of_participants }}</span></li>
                 <li>Aantal inschrijvingen: <span class="text-black font-normal">placeholder data</span></li>
                 @if ($activity->supplies != null)
                     <li class="mt-2">Benodigdheden:</li>
