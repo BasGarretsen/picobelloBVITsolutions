@@ -26,7 +26,7 @@ class ActivitiesController extends Controller
     public function createFormRef()
     {
         if (Auth::check()) {
-            if(Auth::user()->role === 'admin') {
+            if(Auth::user()->role === 'admin' || Auth::user()->role === 'owner') {
                 return view('activityForm');
             }
             else {

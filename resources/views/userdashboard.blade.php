@@ -38,37 +38,16 @@
                         ID
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Activiteit naam
+                        Gebruikersnaam
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        <span class="material-icons">pin_drop</span>
+                        Email
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        <span class="material-icons">restaurant</span>
+                        Rol
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        <span class="material-icons">schedule</span>
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        <span class="material-icons">alarm_off</span>
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        <span class="material-icons">euro</span>
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        <span class="material-icons">person</span>
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        <span class="material-icons">group</span>
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Alleen werknemers
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Upgedate op
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Aangemaakt op 
+                        Gemaakt op
                     </th>
                     <th scope="col" class="px-6 py-3">
                         <span class="material-icons">edit</span>
@@ -79,56 +58,28 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($activities as $activity)
-                @php
-                $employOnly = "Nee";
-
-                if ($activity->employees_only) {
-                $employOnly = "Ja";
-                }
-                @endphp
+            @foreach ($users as $user)
                 <tr class="bg-white border-b hover:bg-gray-50">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {{ $activity->id }}
+                        {{ $user->id }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $activity->activity_name }}
+                        {{ $user->name }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->location }}
+                        {{ $user->email }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->food_included ? 'Ja' : 'Nee' }}
+                        {{ $user->role }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->start_time }}
+                        {{ $user->created_at }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->end_time }}
+                        <a href="{{ route('user.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900"><span class="material-icons">edit</span></a>
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->price }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->minimum_number_of_participants }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->maximum_number_of_participants }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $employOnly }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->updated_at }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->created_at }}
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="{{ route('activities.edit', $activity->id) }}" class="text-indigo-600 hover:text-indigo-900"><span class="material-icons">edit</span></a>
-                    </td>
-                    <td class="px-6 py-4">
-                        <form action="{{ route('activity.destroy', $activity->id) }}" method="POST">
+                        <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-600 hover:text-red-900"><span class="material-icons">delete</span></button>
@@ -140,4 +91,5 @@
         </table>
     </div>
 </div>
+
 @endsection
