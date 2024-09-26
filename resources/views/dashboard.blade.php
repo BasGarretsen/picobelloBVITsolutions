@@ -75,10 +75,10 @@
             <tbody>
                 @foreach ($activities as $activity)
                 @php
-                $employOnly = "No";
+                $employOnly = "Nee";
 
                 if ($activity->employees_only) {
-                $employOnly = "Yes";
+                $employOnly = "Ja";
                 }
                 @endphp
                 <tr class="bg-white border-b hover:bg-gray-50">
