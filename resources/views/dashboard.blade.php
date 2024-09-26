@@ -35,7 +35,7 @@
                         Activiteit naam
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Locatie
+                        <span class="material-icons">pin_drop</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Eten inbegrepen?
@@ -65,10 +65,10 @@
                         Aangemaakt op 
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Bewerken
+                        <span class="material-icons">edit</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Verwijderen
+                        <span class="material-icons">delete</span>
                     </th>
                 </tr>
             </thead>
@@ -119,13 +119,13 @@
                         {{ $activity->created_at }}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ route('activities.edit', $activity->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                        <a href="{{ route('activities.edit', $activity->id) }}" class="text-indigo-600 hover:text-indigo-900"><span class="material-icons">edit</span></a>
                     </td>
                     <td class="px-6 py-4">
                         <form action="{{ route('activity.destroy', $activity->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                            <button type="submit" class="text-red-600 hover:text-red-900"><span class="material-icons">delete</span></button>
                         </form>
                     </td>
                 </tr>
