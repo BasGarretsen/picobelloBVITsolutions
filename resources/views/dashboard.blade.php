@@ -122,15 +122,15 @@
                 <img src="" alt="" id="modalImage" class="rounded-t-lg pb-2">
                 <div class="">
                     <ul class="flex flex-col gap-1">
-                        <li><strong class="text-white font-bold">Location:</strong> <span id="modalLocation"></span></li>
-                        <li><strong class="text-white font-bold">Including Food:</strong> <span id="modalIncludingFood"></span></li>
-                        <li><strong class="text-white font-bold">Start Time:</strong> <span id="modalStartTime"></span></li>
-                        <li><strong class="text-white font-bold">End Time:</strong> <span id="modalEndTime"></span></li>
-                        <li><strong class="text-white font-bold">Price:</strong> <span id="modalPrice"></span></li>
-                        <li><strong class="text-white font-bold">Max Participants:</strong> <span id="modalMaxParticipants"></span></li>
-                        <li><strong class="text-white font-bold">Min Participants:</strong> <span id="modalMinParticipants"></span></li>
-                        <li><strong class="text-white font-bold">Supplies:</strong> <span id="modalSupplies"></span></li>
-                        <li><strong class="text-white font-bold">Description:</strong><br> <span id="modalDescription"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Location:</strong> <span id="modalLocation"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Including Food:</strong> <span id="modalIncludingFood"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Start Time:</strong> <span id="modalStartTime"></span></li>
+                        <li><strong class="text-white font-bold pr-1">End Time:</strong> <span id="modalEndTime"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Price:</strong> <span id="modalPrice"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Max Participants:</strong> <span id="modalMaxParticipants"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Min Participants:</strong> <span id="modalMinParticipants"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Supplies:</strong> <span id="modalSupplies"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Description:</strong><br> <span id="modalDescription"></span></li>
                     </ul>
                 </div>
                 <div class="modal-footer">
