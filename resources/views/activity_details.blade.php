@@ -21,20 +21,19 @@
     <div class="bg-yellow-500 text-white font-bold py-2 px-4 rounded m-[25px] lg:m-[50px] flex-col lg:flex-row flex ">
 @endif
         <div class="lg:w-[50%] h-auto p-[15px] lg:p-[30px]">
-            <img src="{{ $activity->image }}" class="w-full rounded-2xl" alt="There used to be an image here">
+            <img src="{{ asset('images/' . $activity->image) }}" class="w-full rounded-2xl h-96" alt="There used to be an image here">
         </div>
         <div class="lg:w-[50%] h-auto p-[15px] lg:p-[30px]">
             <h2 class="text-4xl font-bold mb-4">{{ $activity->activity_name }}</h2>
             <ul class="max-w-full">
-                <li>Locatie: <span class="text-black font-normal">{{ $activity->location }}</li>
-                <li>Eten inbegrepen: <span class="text-black font-normal">{{ $activity->including_food }}</li>
-                
-                <li>Start tijd: <span class="text-black font-normal">{{ $activity->start_time }}</span></li>
-                <li>End tijd: <span class="text-black font-normal">{{ $activity->end_time }}</span></li>
-                <li>Price: <span class="text-black font-normal">{{ number_format($activity->price, 2) }}</span></li>
-                <li>Max. deelnemers: <span class="text-black font-normal">{{ $activity->maximum_number_of_participants }}</span></li>
-                <li>Min. deelnemers: <span class="text-black font-normal">{{ $activity->minimum_number_of_participants }}</span></li>
-                <li>Aantal inschrijvingen: <span class="text-black font-normal">{{ $registration_count }}</span></li>
+                <li class="flex items-center"><span class="material-icons">pin_drop</span>: <span class="text-black font-normal ml-2">{{ $activity->location }}</span></li>
+                <li class="flex items-center"><span class="material-icons">restaurant</span>: <span class="text-black font-normal ml-2">{{ $activity->including_food }}</span></li>
+                <li class="flex items-center"><span class="material-icons">schedule</span>: <span class="text-black font-normal ml-2">{{ $activity->start_time }}</span></li>
+                <li class="flex items-center"><span class="material-icons">alarm_off</span>: <span class="text-black font-normal ml-2">{{ $activity->end_time }}</span></li>
+                <li class="flex items-center"><span class="material-icons">euro</span>: <span class="text-black font-normal ml-2">{{ number_format($activity->price, 2) }}</span></li>
+                <li class="flex items-center"><span class="material-icons">group</span>: <span class="text-black font-normal ml-2">{{ $activity->maximum_number_of_participants }}</span></li>
+                <li class="flex items-center"><span class="material-icons">person</span>: <span class="text-black font-normal ml-2">{{ $activity->minimum_number_of_participants }}</span></li>
+                <li class="flex items-center"><span class="material-icons">edit_document</span>: <span class="text-black font-normal ml-2">{{ $registration_count }}</span></li>
                 @if ($activity->supplies != null)
                     <li class="mt-2">Benodigdheden:</li>
                     <li class="text-black font-normal">{{ $activity->supplies }}</li>
