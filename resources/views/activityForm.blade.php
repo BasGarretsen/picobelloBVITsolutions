@@ -22,7 +22,7 @@
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white"><span class="material-icons">pin_drop</span>Locatie</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Locatie</label>
             <input type="text" id="location" name="location" placeholder="Location" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 

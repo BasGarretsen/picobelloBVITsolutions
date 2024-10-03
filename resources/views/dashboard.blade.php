@@ -93,7 +93,7 @@
                         <a href="{{ route('activities.edit', $activity->id) }}" class="text-indigo-600 hover:text-indigo-900"><span class="material-icons">edit</span></a>
                     </td>
                     <td class="px-6 py-4">
-                        <form action="{{ route('activity.destroy', $activity->id) }}" method="POST">
+                        <form action="{{ route('activity.destroy', $activity->id) }}" method="POST" class="mb-0">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-600 hover:text-red-900"><span class="material-icons">delete</span></button>
@@ -135,7 +135,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-primary">Edit</a>
+                    @if(isset($activity))
+                        <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-primary">Edit</a>
+                    @endif
                 </div>
             </div>
         </div>
