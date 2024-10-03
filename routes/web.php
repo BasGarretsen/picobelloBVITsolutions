@@ -22,7 +22,9 @@ Route::post('/authenticate', [LoginRegisterController::class, 'authenticate'])->
 Route::get('/dashboard', [LoginRegisterController::class, 'dashboard'])->name('dashboard');
 Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
 Route::get('/', [ActivitiesController::class, 'index'])->name('index');
-Route::get('/activitydetails/{id}', [ActivitiesController::class, 'showActivityDetails'])->name('activitydetails');
+Route::get('/activitydetails/{activityId}', [ActivitiesController::class, 'showActivityDetails'])->name('activitydetails');
+Route::get('/activityregistration/{activityId}', [ActivitiesController::class, 'registerForActivity'])->name('activityregistration');
+Route::get('/activityderegistration/{activityId}', [ActivitiesController::class, 'deregisterForActivity'])->name('activityderegistration');
 Route::get('/create_activity', [ActivitiesController::class, 'createFormRef'])->name('createFormRef');
 Route::post('/store_activity', [ActivitiesController::class, 'store'])->name('storeActivity');
 
