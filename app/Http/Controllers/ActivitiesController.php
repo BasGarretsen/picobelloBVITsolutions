@@ -29,7 +29,7 @@ class ActivitiesController extends Controller
     public function createFormRef()
     {
         if (Auth::check()) {
-            if(Auth::user()->role === 'admin') {
+            if(Auth::user()->role === 'admin' || Auth::user()->role === 'owner') {
                 return view('activityForm');
             }
             else {
@@ -103,6 +103,36 @@ class ActivitiesController extends Controller
             return redirect()->route('activitydetails', ['activityId' => $activityId]);
     }
 
+    public function registerGuestForActivity(Request $request, $activityId)
+    {
+          $activity = activities::find($activityId);
+
+          $registrations = activity_registrations::where('activity_id', $activity->id)->get();
+
+            $validateData = $request->validate([
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'email' => 'required|email'
+            ]);
+
+            foreach ($registrations as $key => $registration) {
+                if ($registration->email === $validateData['email']) {
+                    session()->flash('error', 'Je bent al aangemeld voor deze activiteit!');
+                    return redirect()->route('activitydetails', ['activityId' => $activityId]);
+                }
+            }
+            $activity_registration = new activity_registrations();
+
+            $activity_registration->activity_id = $activityId;
+            $activity_registration->firstname = $validateData['firstname'];
+            $activity_registration->lastname = $validateData['lastname'];
+            $activity_registration->email = $validateData['email'];
+            $activity_registration->save();
+        
+            session()->flash('success', 'Je bent aangemeld voor deze activiteit!');
+            return redirect()->route('activitydetails', ['activityId' => $activityId]);
+    }
+
         /**
      * Show the form for creating a new resource.
      */
@@ -129,6 +159,12 @@ class ActivitiesController extends Controller
         'image' => 'required',
     ]);
 
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+    }
+
     $employeeOnly = $request->has('employee_only');
 
     $activity = new Activities();
@@ -142,7 +178,7 @@ class ActivitiesController extends Controller
     $activity->price = $validateData['price'];
     $activity->maximum_number_of_participants = $validateData['maximum_participants'];
     $activity->minimum_number_of_participants = $validateData['minimum_participants'];
-    $activity->image = $validateData['image'];
+    $activity->image = $imageName;
     $activity->employees_only = $employeeOnly;
 
     $activity->save();

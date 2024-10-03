@@ -2,6 +2,14 @@
 
 @section('content')
 
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <div style="display: flex; flex-direction: column; align-items: center;" class="my-10">
 
     @if (session('success'))
@@ -23,6 +31,12 @@
                 Gebruiker registreren
             </button>
         </a>
+
+        <a href="/userdashboard">
+            <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                User dashboard
+            </button>
+        </a>
     </div>
     <div style="max-width: 95%; width: max-content;" class="overflow-x-auto sm:rounded-lg text-black my-10 mx-10 shadow-2xl">
         <table class="text-sm text-left rtl:text-right text-gray-500">
@@ -35,64 +49,36 @@
                         Activiteit naam
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Locatie
+                        <span class="material-icons">schedule</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Eten inbegrepen?
+                        <span class="material-icons">alarm_off</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Start tijd
+                        Aangemaakt op
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Eind tijd
+                        <span class="material-icons">edit</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Prijs
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Min deelnemers
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Max deelnemers
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Alleen werknemers
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Upgedate op
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Aangemaakt op 
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Bewerken
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Verwijderen
+                        <span class="material-icons">delete</span>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($activities as $activity)
                 @php
-                $employOnly = "No";
-
+                $employOnly = "Nee";
                 if ($activity->employees_only) {
-                $employOnly = "Yes";
+                $employOnly = "Ja";
                 }
                 @endphp
-                <tr class="bg-white border-b hover:bg-gray-50">
+                <tr class="bg-white border-b hover:bg-gray-50 hover:cursor-pointer" onclick="openModal({{ $activity }})">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ $activity->id }}
                     </th>
                     <td class="px-6 py-4">
                         {{ $activity->activity_name }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->location }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->food_included ? 'Ja' : 'Nee' }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $activity->start_time }}
@@ -101,31 +87,16 @@
                         {{ $activity->end_time }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $activity->price }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->minimum_number_of_participants }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->maximum_number_of_participants }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $employOnly }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $activity->updated_at }}
-                    </td>
-                    <td class="px-6 py-4">
                         {{ $activity->created_at }}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ route('activities.edit', $activity->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                        <a href="{{ route('activities.edit', $activity->id) }}" class="text-indigo-600 hover:text-indigo-900"><span class="material-icons">edit</span></a>
                     </td>
                     <td class="px-6 py-4">
                         <form action="{{ route('activity.destroy', $activity->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                            <button type="submit" class="text-red-600 hover:text-red-900"><span class="material-icons">delete</span></button>
                         </form>
                     </td>
                 </tr>
@@ -135,3 +106,55 @@
     </div>
 </div>
 @endsection
+
+<!-- Modal Structure -->
+<div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="activityModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #f5af00 !important;">
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="activityModalLabel">Activity Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalActivityName" class="text-white font-bold"></h2>
+                <img src="" alt="" id="modalImage" class="rounded-t-lg pb-2">
+                <div class="">
+                    <ul class="flex flex-col gap-1">
+                        <li><strong class="text-white font-bold pr-1">Location:</strong> <span id="modalLocation"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Including Food:</strong> <span id="modalIncludingFood"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Start Time:</strong> <span id="modalStartTime"></span></li>
+                        <li><strong class="text-white font-bold pr-1">End Time:</strong> <span id="modalEndTime"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Price:</strong> <span id="modalPrice"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Max Participants:</strong> <span id="modalMaxParticipants"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Min Participants:</strong> <span id="modalMinParticipants"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Supplies:</strong> <span id="modalSupplies"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Description:</strong><br> <span id="modalDescription"></span></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(activity) {
+        document.getElementById('modalActivityName').innerText = activity.activity_name;
+        document.getElementById('modalImage').src = activity.image;
+        document.getElementById('modalLocation').innerText = activity.location;
+        document.getElementById('modalIncludingFood').innerText = activity.including_food;
+        document.getElementById('modalStartTime').innerText = activity.start_time;
+        document.getElementById('modalEndTime').innerText = activity.end_time;
+        document.getElementById('modalPrice').innerText = activity.price;
+        document.getElementById('modalMaxParticipants').innerText = activity.maximum_number_of_participants;
+        document.getElementById('modalMinParticipants').innerText = activity.minimum_number_of_participants;
+        document.getElementById('modalSupplies').innerText = activity.supplies || 'N/A';
+        document.getElementById('modalDescription').innerText = activity.description;
+        $('#activityModal').modal('show');
+    }
+</script>

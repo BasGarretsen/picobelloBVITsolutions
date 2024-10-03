@@ -4,12 +4,22 @@
 
 <div class="activityDetail">
 @if (session('success'))
-    <div class="bg-green-100 border border-green-400 text-center w-1/3 flex justify-center mx-auto text-green-700 px-4 py-3 my-3 rounded" role="alert">
+    <div class="bg-green-100 border border-green-400 text-center w-1/3 flex justify-center mx-auto text-green-700 px-4 py-3 my-[25px] rounded" role="alert">
         <strong class="font-bold pr-2">Success!</strong>
         <span class="block sm:inline">{{ session('success') }}</span>
     </div>
-    @endif
+@endif
+@if (session('error'))
+    <div class="bg-red-100 border border-red-400 text-center w-1/3 flex justify-center mx-auto text-red-400 px-4 py-3 my-[25px] rounded" role="alert">
+        <strong class="font-bold pr-2">Let op!</strong>
+        <span class="block sm:inline">{{ session('error') }}</span>
+    </div>
+
+    <div class="bg-yellow-500 text-white font-bold py-2 px-4 rounded mx-[25px] lg:mx-[50px] mt-[0] flex-col lg:flex-row flex ">
+@endif
+@if (!session('error') && !session('succes'))
     <div class="bg-yellow-500 text-white font-bold py-2 px-4 rounded m-[25px] lg:m-[50px] flex-col lg:flex-row flex ">
+@endif
         <div class="lg:w-[50%] h-auto p-[15px] lg:p-[30px]">
             <img src="{{ $activity->image }}" class="w-full rounded-2xl" alt="There used to be an image here">
         </div>
@@ -51,7 +61,6 @@
             @endif
         </div>
     </div>
-
 </div>
 
 @endsection

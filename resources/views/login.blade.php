@@ -18,7 +18,6 @@
                     </ul>
                 </div>
                 @endif
-                <p class="text-white">Alleen werknemers.</p>
                 <form class="space-y-4 md:space-y-6" action="{{ route('authenticate') }}" method="post">
                     @csrf
                     <div>
