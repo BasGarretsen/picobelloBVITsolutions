@@ -135,9 +135,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    @if(isset($activity))
-                        <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-primary">Edit</a>
-                    @endif
+                    <a href="#" class="btn btn-primary">Edit</a>
                 </div>
             </div>
         </div>
@@ -157,6 +155,7 @@
         document.getElementById('modalMinParticipants').innerText = activity.minimum_number_of_participants;
         document.getElementById('modalSupplies').innerText = activity.supplies || 'N/A';
         document.getElementById('modalDescription').innerText = activity.description;
+        document.querySelector('.modal-footer .btn-primary').href = `/dashboard/edit/${activity.id}`;
         $('#activityModal').modal('show');
     }
 </script>
