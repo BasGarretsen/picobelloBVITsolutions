@@ -8,6 +8,19 @@
     <div class="flex justify-center">
         <section class="cards block md:grid md:grid-cols-2 lg:grid-cols-3 my-10 gap-10">
             @foreach($activities as $activity)
+                @php
+                    $activityReg = [];
+
+
+                    foreach($registrations as $registration) {
+                        if ($registration->activity_id == $activity->id) {
+                            array_push($activityReg, $registration);
+                        }
+                    }
+
+                    $registration_count = count($activityReg);
+
+                @endphp
             <div class="card bg-[#f5af00] w-72 rounded-2xl shadow-2xl my-10 md:my-0">
                 <img style="height: 200px" src="{{ asset('images/' . $activity->image) }}" alt="Placeholder" class="w-72 rounded-2xl p-4">
                 <br>
@@ -17,7 +30,7 @@
                     <p class="flex items-center pb-1 gap-1"><span class="material-icons">schedule</span>: <span class="text-black">{{$activity['start_time']}}</span></p>
                     <p class="flex items-center pb-1 gap-1"><span class="material-icons">alarm_off</span>: <span class="text-black">{{$activity['end_time']}}</span></p>
                     <p class="flex items-center pb-1 gap-1"><span class="material-icons">group</span>: <span class="text-black">{{$activity['maximum_number_of_participants']}}</span></p>
-                    <p class="flex items-center pb-1 gap-1"><span class="material-icons">edit_document</span>: <span class="text-black">placeholder data</span></p>
+                    <p class="flex items-center pb-1 gap-1"><span class="material-icons">edit_document</span>: <span class="text-black">{{ $registration_count }}</span></p>
                 </div>
 
                 <a href="/activitydetails/{{$activity['id']}}">

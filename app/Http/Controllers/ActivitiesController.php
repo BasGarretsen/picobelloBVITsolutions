@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\activities;
+use App\Models\activity_registrations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,13 +15,15 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
+        $registrations = activity_registrations::all();
+
         if (Auth::check()) {
             $activities = activities::all();
         } else {
             $activities = activities::where('employees_only', false)->get();
         }
 
-        return view('index', ['activities' => $activities]);
+        return view('index', ['activities' => $activities, 'registrations' => $registrations]);
     }
 
     public function createFormRef()
@@ -44,11 +47,90 @@ class ActivitiesController extends Controller
         /**
      * Show the form for creating a new resource.
      */
-    public function showActivityDetails(Request $request, $id)
+    public function showActivityDetails( $activityId)
     {
-          $activity = activities::find($id);
+        $activity = activities::find($activityId);
+        $registered = false;
 
-          return view('activity_details', compact('activity'));
+        $registrations = activity_registrations::where('activity_id', $activity->id)->get();
+        $registration_count = $registrations->count();
+
+        if (Auth::check()) {
+            foreach ($registrations as $key => $registration) {
+                if ($registration->user_id === Auth::user()->id) {
+                    $registered = true;
+                }
+            }
+        }
+
+        return view('activity_details', ['activity' => $activity, 'registered' => $registered, 'registration_count' => $registration_count]);
+    }
+
+    public function registerForActivity($activityId)
+    {
+          $activity = activities::find($activityId);
+          if (Auth::check()) {
+            $activity_registration = new activity_registrations();
+            $splitName = explode(' ', Auth::user()->name, 2);
+
+            $activity_registration->activity_id = $activityId;
+            $activity_registration->user_id = Auth::user()->id;
+            $activity_registration->firstname = $splitName[0];
+            $activity_registration->lastname = !empty($splitName[1]) ? $splitName[1] : '';
+            $activity_registration->email = Auth::user()->email;
+            
+            $activity_registration->save();
+        
+            session()->flash('success', 'Je bent aangemeld voor deze activiteit!');
+            return redirect()->route('activitydetails', ['activityId' => $activityId]);
+          }else{
+            return view('activity_register', ['activity' => $activity]);
+          }
+    }
+
+    public function deregisterForActivity($activityId)
+    {
+        $activity = activities::find($activityId);
+        $registrations = activity_registrations::where('activity_id', $activity->id)->get();
+        if (Auth::check()) {
+            foreach ($registrations as $key => $registration) {
+                if ($registration->user_id === Auth::user()->id) {
+                    $registration->delete();
+                }
+            }
+        }
+            session()->flash('success', 'Je bent afgemeld voor deze activiteit!');
+            return redirect()->route('activitydetails', ['activityId' => $activityId]);
+    }
+
+    public function registerGuestForActivity(Request $request, $activityId)
+    {
+          $activity = activities::find($activityId);
+
+          $registrations = activity_registrations::where('activity_id', $activity->id)->get();
+
+            $validateData = $request->validate([
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'email' => 'required|email'
+            ]);
+
+            foreach ($registrations as $key => $registration) {
+                if ($registration->email === $validateData['email']) {
+                    session()->flash('error', 'Je bent al aangemeld voor deze activiteit!');
+                    return redirect()->route('activitydetails', ['activityId' => $activityId]);
+                }
+            }
+            $activity_registration = new activity_registrations();
+
+            $activity_registration->activity_id = $activityId;
+            $activity_registration->firstname = $validateData['firstname'];
+            $activity_registration->lastname = $validateData['lastname'];
+            $activity_registration->email = $validateData['email'];
+            $activity_registration->save();
+        
+            session()->flash('success', 'Je bent aangemeld voor deze activiteit!');
+            return redirect()->route('activitydetails', ['activityId' => $activityId]);
     }
 
         /**
