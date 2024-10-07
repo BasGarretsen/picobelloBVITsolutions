@@ -119,7 +119,7 @@
             </div>
             <div class="modal-body">
                 <h2 id="modalActivityName" class="text-white font-bold"></h2>
-                <img src="" alt="" id="modalImage" class="rounded-t-lg pb-2">
+                <img src="" alt="" id="modalImage" class="rounded-t-lg pb-2 h-60">
                 <div class="">
                     <ul class="flex flex-col gap-1">
                         <li><strong class="text-white font-bold pr-1">Location:</strong> <span id="modalLocation"></span></li>
@@ -145,7 +145,7 @@
 <script>
     function openModal(activity) {
         document.getElementById('modalActivityName').innerText = activity.activity_name;
-        document.getElementById('modalImage').src = activity.image;
+        document.getElementById('modalImage').src = '/images/' + activity.image;
         document.getElementById('modalLocation').innerText = activity.location;
         document.getElementById('modalIncludingFood').innerText = activity.including_food;
         document.getElementById('modalStartTime').innerText = activity.start_time;
