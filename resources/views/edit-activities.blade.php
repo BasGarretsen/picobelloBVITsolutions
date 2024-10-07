@@ -48,12 +48,12 @@
 
         <div class="mb-5">
             <label for="minimum_participants" class="block mb-2 text-sm font-medium text-gray-900 text-white">Minimale deelnemers</label>
-            <input type="text" id="minimum_participants" name="minimum_participants" value="{{ isset($activity) ? $activity->minimum_number_of_participants : old('minimum_participants') }}" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
+            <input type="text" id="minimum_participants" name="minimum_number_of_participants" value="{{ isset($activity) ? $activity->minimum_number_of_participants : old('minimum_number_of_participants') }}" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
         </div>
 
         <div class="mb-5">
             <label for="maximum_participants" class="block mb-2 text-sm font-medium text-gray-900 text-white">Maximale deelnemers</label>
-            <input type="text" id="maximum_participants" name="maximum_participants" value="{{ isset($activity) ? $activity->maximum_number_of_participants : old('maximum_participants') }}" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
+            <input type="text" id="maximum_participants" name="maximum_number_of_participants" value="{{ isset($activity) ? $activity->maximum_number_of_participants : old('maximum_number_of_participants') }}" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
         </div>
 
         <div class="mb-5">
@@ -63,7 +63,7 @@
 
         <div class="mb-5">
             <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 text-white">Eten inbegrepen</label>
-            <select name="food_included" id="">
+            <select name="including_food" id="including_food">
             <option value="" disabled>Kies optie</option>
             <option value="yes" {{ old('including_food', $activity->including_food) === 'ja' ? 'selected' : '' }}>Ja</option>
             <option value="no" {{ old('including_food', $activity->including_food) === 'nee' ? 'selected' : '' }}>Nee</option>

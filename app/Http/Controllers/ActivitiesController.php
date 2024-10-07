@@ -134,7 +134,7 @@ class ActivitiesController extends Controller
     $rules = [
         'activity_name' => 'sometimes|required|min:3',
         'location' => 'sometimes|required',
-        'including_food' => 'sometimes|required',
+        'food_included' => 'sometimes|required',
         'description' => 'sometimes|required',
         'start_time' => 'sometimes|required|date|before:end_time',
         'end_time' => 'sometimes|required|date',
@@ -148,7 +148,7 @@ class ActivitiesController extends Controller
 
     $activity->activity_name = $request->input('activity_name', $activity->activity_name);
     $activity->location = $request->input('location', $activity->location);
-    $activity->including_food = $request->input('including_food', $activity->including_food);
+    $activity->including_food = $request->input('food_included', $activity->including_food);
     $activity->description = $request->input('description', $activity->description);
     $activity->start_time = $request->input('start_time', $activity->start_time);
     $activity->end_time = $request->input('end_time', $activity->end_time);
