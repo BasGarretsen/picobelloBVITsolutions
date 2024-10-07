@@ -6,6 +6,7 @@ use App\Models\activities;
 use App\Models\activity_registrations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 
 class ActivitiesController extends Controller
@@ -112,11 +113,11 @@ class ActivitiesController extends Controller
             $validateData = $request->validate([
                 'firstname' => 'required',
                 'lastname' => 'required',
-                'email' => 'required|email'
+                'email' => 'required|email',
             ]);
 
             foreach ($registrations as $key => $registration) {
-                if ($registration->email === $validateData['email']) {
+                if (Str::upper($registration->email) === Str::upper($validateData['email'])||Str::upper($registration->firstname) === Str::upper($validateData['firstname'])&&Str::upper($registration->lastname) === Str::upper($validateData['lastname'])) {
                     session()->flash('error', 'Je bent al aangemeld voor deze activiteit!');
                     return redirect()->route('activitydetails', ['activityId' => $activityId]);
                 }
@@ -127,6 +128,9 @@ class ActivitiesController extends Controller
             $activity_registration->firstname = $validateData['firstname'];
             $activity_registration->lastname = $validateData['lastname'];
             $activity_registration->email = $validateData['email'];
+            if ($request->phone !=null) {
+                $activity_registration->phone_number = $request->phone;
+            }
             $activity_registration->save();
         
             session()->flash('success', 'Je bent aangemeld voor deze activiteit!');

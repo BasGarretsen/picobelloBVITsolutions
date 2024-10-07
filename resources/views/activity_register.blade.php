@@ -23,18 +23,25 @@
     <div class="grid grid-cols-1 gap-3">
         <div class="mb-5">
             <label for="firstname" class="block mb-2 text-sm font-medium text-gray-900 text-white">Voornaam</label>
-            <input type="text" id="firstname" name="firstname" value="" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
+            <input type="text" id="firstname" name="firstname" value="" placeholder="Voornaam" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
         </div>
-
-        <div class="grid grid-cols-1 gap-3">
         <div class="mb-5">
             <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 text-white">Achternaam</label>
-            <input type="text" id="lastname" name="lastname" value="" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
+            <input type="text" id="lastname" name="lastname" value="" placeholder="Achternaam" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
         </div>
-        <div class="grid grid-cols-1 gap-3">
         <div class="mb-5">
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 text-white">Email</label>
-            <input type="email" id="email" name="email" value="" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
+            <input type="email" id="email" name="email" value="" placeholder="Email" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
+        </div>
+        <div class="mb-5"> 
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 text-white">Phone (optioneel) +31</label>
+            <input type="tel" 
+                id="phone" 
+                name="phone" 
+                value="" 
+                placeholder="06 12345678" 
+                class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                pattern="^(06\s?\d{8}|6\s?\d{8}|(20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|86|87|88|89|90|91|92|93|94|95|96|97|98|99)\s?\d{7})$" />
         </div>
         
     </div>
