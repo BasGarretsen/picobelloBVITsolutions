@@ -133,6 +133,20 @@ class ActivitiesController extends Controller
             return redirect()->route('activitydetails', ['activityId' => $activityId]);
     }
 
+    public function archiveOldActivities()
+    {
+        // Haal alle activiteiten op die ouder zijn dan 30 dagen en nog niet gearchiveerd zijn
+        $oldActivities = Activity::olderThan(30)->get();
+
+        foreach ($oldActivities as $activity) {
+            $activity->is_archived = true;  // Archiveer de activiteit
+            $activity->save();
+        }
+
+        return redirect()->back()->with('status', 'Oude activiteiten succesvol gearchiveerd!');
+    }
+
+
         /**
      * Show the form for creating a new resource.
      */
