@@ -37,6 +37,14 @@
                 User dashboard
             </button>
         </a>
+
+        <div class="searchFunc" style="width: 100%; height: 40px; display: flex; justify-content: center; margin-top: 20px">
+            <form action="{{ route('dashboardSearch'); }}" method="GET">
+                @csrf
+                <input type="text" name="query" id="query" class="text-black font-bold py-2 px-4 rounded" style="border: solid black 1px">
+                <input type="submit" value="Zoeken" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" style="">
+            </form>
+        </div>
     </div>
     <div style="max-width: 95%; width: max-content;" class="overflow-x-auto sm:rounded-lg text-black my-10 mx-10 shadow-2xl">
         <table class="text-sm text-left rtl:text-right text-gray-500">

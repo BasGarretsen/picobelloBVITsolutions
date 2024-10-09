@@ -37,3 +37,4 @@ Route::get('/userdashboard', [LoginRegisterController::class, 'userdashboard'])-
 Route::put('/userdashboard/update/{id}', [LoginRegisterController::class, 'updateUser'])->name('user.update');
 Route::get('/userdashboard/edit/{id}', [LoginRegisterController::class, 'editUser'])->name('user.edit');
 Route::delete('/userdashboard/delete/{id}', [LoginRegisterController::class, 'destroyUser'])->name('user.destroy');
+Route::get('/dashboard/search', [ActivitiesController::class, 'dashboardSearch'])->name('dashboardSearch');
