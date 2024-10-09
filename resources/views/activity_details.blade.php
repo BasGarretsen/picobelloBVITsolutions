@@ -42,13 +42,19 @@
                 <li class="text-black font-normal">{{ $activity->description }}</li>
             </ul>
             @if(!$registered)
-                <div class="w-full flex justify-end">
-                    <a href="/activityregistration/{{$activity['id']}}">
-                        <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
-                            Aanmelden
-                        </button>
-                    </a>
-                </div>
+                @if($activity->maximum_number_of_participants != $registration_count)
+                    <div class="w-full flex justify-end">
+                        <a href="/activityregistration/{{$activity['id']}}">
+                            <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
+                                Aanmelden
+                            </button>
+                        </a>
+                    </div>
+                @else
+                    <div class="w-full flex justify-end">
+                        <p class="my-[10px]">Deze activiteit zit vol</p>
+                    </div>
+                @endif
             @else
                 <div class="w-full flex justify-end">
                         <a href="/activityderegistration/{{$activity['id']}}">
