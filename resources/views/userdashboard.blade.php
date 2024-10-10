@@ -12,9 +12,9 @@
     @endif
 
     <div class="buttonDiv">
-        <a href="/create_activity">
+        <a href="/dashboard">
             <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                Activiteit aanmaken
+                Activiteiten dashboard
             </button>
         </a>
 
@@ -24,11 +24,6 @@
             </button>
         </a>
 
-        <a href="/userdashboard">
-            <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                User dashboard
-            </button>
-        </a>
     </div>
     <div style="max-width: 95%; width: max-content;" class="overflow-x-auto sm:rounded-lg text-black my-10 mx-10 shadow-2xl">
         <table class="text-sm text-left rtl:text-right text-gray-500">
@@ -58,7 +53,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($users as $user)
+                @foreach ($users as $user)
                 <tr class="bg-white border-b hover:bg-gray-50">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ $user->id }}
@@ -82,9 +77,7 @@
                         <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="mb-0" onsubmit="return confirmDelete(event)">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="event.stopPropagation();" class="text-red-600 hover:text-red-900">
-                                <span class="material-icons">delete</span>
-                            </button>
+                            <button type="submit" class="text-red-600 hover:text-red-900"><span class="material-icons">delete</span></button>
                         </form>
                     </td>
                 </tr>
@@ -100,7 +93,7 @@
 
     function confirmDelete(event) {
         // Bevestigingsmelding
-        const userConfirmed = confirm("Weet u zeker dat u deze activiteit wilt verwijderen?");
+        const userConfirmed = confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?");
         if (!userConfirmed) {
             event.preventDefault();
             return false;

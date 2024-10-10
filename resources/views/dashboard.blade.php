@@ -36,12 +36,6 @@
             </button>
         </a>
 
-        <a href="/register">
-            <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                Gebruiker registreren
-            </button>
-        </a>
-
         <a href="/userdashboard">
             <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
                 User dashboard
