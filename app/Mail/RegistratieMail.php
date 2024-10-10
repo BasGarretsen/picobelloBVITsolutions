@@ -36,9 +36,11 @@ class RegistratieMail extends Mailable
      */
     public function content(): Content
     {
-        return new Content(
-            view: 'view.name',
-        );
+            return $this->view('emails.geregistreerd')
+            ->subject('Welkom bij onze applicatie')
+            ->with([
+                'name' => $this->user->name,
+            ]);
     }
 
     /**

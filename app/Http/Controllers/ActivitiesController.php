@@ -134,6 +134,11 @@ class ActivitiesController extends Controller
             $activity_registration->save();
         
             session()->flash('success', 'Je bent aangemeld voor deze activiteit!');
+
+            
+            // Verstuur de mail
+            // Mail::to($user->email)->send(new WelcomeMail($user));
+
             return redirect()->route('activitydetails', ['activityId' => $activityId]);
     }
 
