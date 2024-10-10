@@ -49,7 +49,7 @@
         </a>
 
         <div class="searchFunc" style="width: 100%; height: 40px; display: flex; justify-content: center; margin-top: 20px">
-            <form action="{{ route('dashboardSearch'); }}" method="GET">
+            <form action="{{ route('dashboardSearch') }}" method="GET">
                 @csrf
                 <input type="text" name="query" id="query" class="text-black font-bold py-2 px-4 rounded" style="border: solid black 1px">
                 <input type="submit" value="Zoeken" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" style="">
@@ -111,10 +111,12 @@
                     <a href="{{ route('activities.edit', $activity->id) }}" class="text-indigo-600 hover:text-indigo-900" onclick="event.stopPropagation();"><span class="material-icons">edit</span></a>
                     </td>
                     <td class="px-6 py-4">
-                        <form action="{{ route('activity.destroy', $activity->id) }}" method="POST" class="mb-0">
+                        <form action="{{ route('activity.destroy', $activity->id) }}" method="POST" class="mb-0" onsubmit="return confirmDelete(event)">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="event.stopPropagation();" class="text-red-600 hover:text-red-900"><span class="material-icons">delete</span></button>
+                            <button type="submit" onclick="event.stopPropagation();" class="text-red-600 hover:text-red-900">
+                                <span class="material-icons">delete</span>
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -140,15 +142,15 @@
                 <img src="" alt="" id="modalImage" class="rounded-t-lg pb-2 h-60">
                 <div class="">
                     <ul class="flex flex-col gap-1">
-                        <li><strong class="text-white font-bold pr-1">Location:</strong> <span id="modalLocation"></span></li>
-                        <li><strong class="text-white font-bold pr-1">Including Food:</strong> <span id="modalIncludingFood"></span></li>
-                        <li><strong class="text-white font-bold pr-1">Start Time:</strong> <span id="modalStartTime"></span></li>
-                        <li><strong class="text-white font-bold pr-1">End Time:</strong> <span id="modalEndTime"></span></li>
-                        <li><strong class="text-white font-bold pr-1">Price:</strong> <span id="modalPrice"></span></li>
-                        <li><strong class="text-white font-bold pr-1">Max Participants:</strong> <span id="modalMaxParticipants"></span></li>
-                        <li><strong class="text-white font-bold pr-1">Min Participants:</strong> <span id="modalMinParticipants"></span></li>
-                        <li><strong class="text-white font-bold pr-1">Supplies:</strong> <span id="modalSupplies"></span></li>
-                        <li><strong class="text-white font-bold pr-1">Description:</strong><br> <span id="modalDescription"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Locatie:</strong> <span id="modalLocation"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Eten inbegrepen:</strong> <span id="modalIncludingFood"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Begin tijd:</strong> <span id="modalStartTime"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Eind tijd:</strong> <span id="modalEndTime"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Kosten:</strong> <span id="modalPrice"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Max Deelnemers:</strong> <span id="modalMaxParticipants"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Min Deelnemers:</strong> <span id="modalMinParticipants"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Benodigdheden:</strong> <span id="modalSupplies"></span></li>
+                        <li><strong class="text-white font-bold pr-1">Omschrijving:</strong><br> <span id="modalDescription"></span></li>
                     </ul>
                 </div>
                 <div class="modal-footer">
@@ -175,5 +177,15 @@
         document.getElementById('modalDescription').innerText = activity.description;
         document.querySelector('.modal-footer .btn-primary').href = `/dashboard/edit/${activity.id}`;
         $('#activityModal').modal('show');
+    }
+
+    function confirmDelete(event) {
+        // Bevestigingsmelding
+        const userConfirmed = confirm("Weet u zeker dat u deze activiteit wilt verwijderen?");
+        if (!userConfirmed) {
+            event.preventDefault();
+            return false;
+        }
+        return true;
     }
 </script>
