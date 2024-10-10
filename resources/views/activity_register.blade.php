@@ -2,7 +2,8 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('activityregistrationguests', $activity->id) }}" class="max-w-lg mx-auto bg-[#f5af00] my-10 p-10 rounded-2xl shadow-2xl" enctype="multipart/form-data">
+<form method="POST" action="{{ route('activityregistrationguests', ['returnL' => $returnL, 'activityId' => $activity->id]) }}"
+" class="max-w-lg mx-auto bg-[#f5af00] my-10 p-10 rounded-2xl shadow-2xl" enctype="multipart/form-data">
     @csrf
     @if (isset($activity))
         @method('POST') <!-- Use PUT for updating -->

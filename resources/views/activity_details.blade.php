@@ -44,7 +44,7 @@
             @if(!$registered)
                 @if($activity->maximum_number_of_participants != $registration_count)
                     <div class="w-full flex justify-end">
-                        <a href="/activityregistration/{{$activity['id']}}">
+                        <a href="/activityregistration/2/{{$activity['id']}}">
                             <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
                                 Aanmelden
                             </button>
@@ -57,7 +57,7 @@
                 @endif
             @else
                 <div class="w-full flex justify-end">
-                        <a href="/activityderegistration/{{$activity['id']}}">
+                        <a href="/activityderegistration/2/{{$activity['id']}}">
                             <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
                                 Afmelden
                             </button>

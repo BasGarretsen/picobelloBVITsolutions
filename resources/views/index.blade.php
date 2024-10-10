@@ -10,11 +10,19 @@
             @foreach($activities as $activity)
                 @php
                     $activityReg = [];
-
+                    $registered = false;
 
                     foreach($registrations as $registration) {
                         if ($registration->activity_id == $activity->id) {
                             array_push($activityReg, $registration);
+                        }
+                        
+                        if (Auth::check())
+                        {
+                            if ($registration->activity_id == $activity->id && $registration->user_id == Auth::user()->id)
+                            {
+                                $registered = true;
+                            }
                         }
                     }
 
@@ -32,12 +40,30 @@
                     <p class="flex items-center pb-1 gap-1"><span class="material-icons">group</span>: <span class="text-black">{{$activity['maximum_number_of_participants']}}</span></p>
                     <p class="flex items-center pb-1 gap-1"><span class="material-icons">edit_document</span>: <span class="text-black">{{ $registration_count }}</span></p>
                 </div>
-
+                    <div class="flex flex-row">
                 <a href="/activitydetails/{{$activity['id']}}">
                 <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
                     Details
                 </button>
                 </a>
+            @if(!$registered)
+                @if($activity->maximum_number_of_participants != $registration_count)
+                        <a href="/activityregistration/1/{{$activity['id']}}">
+                            <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
+                                Aanmelden
+                            </button>
+                        </a>
+                @else
+                        <p class="my-[10px] w-fit">Deze activiteit zit vol</p>
+                @endif
+            @else
+                        <a href="/activityderegistration/1/{{$activity['id']}}">
+                            <button class="bg-white text-black hover:bg-yellow-700 font-bold py-2 px-4 rounded mt-2 m-4">
+                                Afmelden
+                            </button>
+                        </a>
+            @endif
+            </div>
             </div>
             @endforeach
         </section>

@@ -18,6 +18,7 @@ class ActivitiesController extends Controller
     {
         $registrations = activity_registrations::all();
 
+        
         if (Auth::check()) {
             $activities = activities::all();
         } else {
@@ -67,7 +68,7 @@ class ActivitiesController extends Controller
         return view('activity_details', ['activity' => $activity, 'registered' => $registered, 'registration_count' => $registration_count]);
     }
 
-    public function registerForActivity($activityId)
+    public function registerForActivity($returnL,$activityId)
     {
           $activity = activities::find($activityId);
           if (Auth::check()) {
@@ -83,13 +84,19 @@ class ActivitiesController extends Controller
             $activity_registration->save();
         
             session()->flash('success', 'Je bent aangemeld voor deze activiteit!');
-            return redirect()->route('activitydetails', ['activityId' => $activityId]);
+
+            if ($returnL === '1'){
+                return redirect()->route('index');
+            }else if ($returnL === '2'){
+                return redirect()->route('activitydetails', ['activityId' => $activityId]);
+            }
+
           }else{
-            return view('activity_register', ['activity' => $activity]);
+            return view('activity_register', ['returnL' => $returnL,'activity' => $activity]);
           }
     }
 
-    public function deregisterForActivity($activityId)
+    public function deregisterForActivity($returnL,$activityId)
     {
         $activity = activities::find($activityId);
         $registrations = activity_registrations::where('activity_id', $activity->id)->get();
@@ -101,10 +108,14 @@ class ActivitiesController extends Controller
             }
         }
             session()->flash('success', 'Je bent afgemeld voor deze activiteit!');
-            return redirect()->route('activitydetails', ['activityId' => $activityId]);
+            if ($returnL === '1'){
+                return redirect()->route('index');
+            }else if ($returnL === '2'){
+                return redirect()->route('activitydetails', ['activityId' => $activityId]);
+            }
     }
 
-    public function registerGuestForActivity(Request $request, $activityId)
+    public function registerGuestForActivity(Request $request,$returnL, $activityId)
     {
           $activity = activities::find($activityId);
 
@@ -132,9 +143,12 @@ class ActivitiesController extends Controller
                 $activity_registration->phone_number = $request->phone;
             }
             $activity_registration->save();
-        
             session()->flash('success', 'Je bent aangemeld voor deze activiteit!');
-            return redirect()->route('activitydetails', ['activityId' => $activityId]);
+            if ($returnL === '1'){
+                return redirect()->route('index');
+            }else if ($returnL === '2'){
+                return redirect()->route('activitydetails', ['activityId' => $activityId]);
+            }
     }
 
         /**

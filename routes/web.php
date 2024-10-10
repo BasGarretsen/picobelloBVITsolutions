@@ -23,9 +23,9 @@ Route::get('/dashboard', [LoginRegisterController::class, 'dashboard'])->name('d
 Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
 Route::get('/', [ActivitiesController::class, 'index'])->name('index');
 Route::get('/activitydetails/{activityId}', [ActivitiesController::class, 'showActivityDetails'])->name('activitydetails');
-Route::get('/activityregistration/{activityId}', [ActivitiesController::class, 'registerForActivity'])->name('activityregistration');
-Route::get('/activityderegistration/{activityId}', [ActivitiesController::class, 'deregisterForActivity'])->name('activityderegistration');
-Route::post('/activityregistrationguests/{activityId}', [ActivitiesController::class, 'registerGuestForActivity'])->name('activityregistrationguests');
+Route::get('/activityregistration/{returnL}/{activityId}', [ActivitiesController::class, 'registerForActivity'])->name('activityregistration');
+Route::get('/activityderegistration/{returnL}/{activityId}', [ActivitiesController::class, 'deregisterForActivity'])->name('activityderegistration');
+Route::post('/activityregistrationguests/{returnL}/{activityId}', [ActivitiesController::class, 'registerGuestForActivity'])->name('activityregistrationguests');
 Route::get('/create_activity', [ActivitiesController::class, 'createFormRef'])->name('createFormRef');
 Route::post('/store_activity', [ActivitiesController::class, 'store'])->name('storeActivity');
 
