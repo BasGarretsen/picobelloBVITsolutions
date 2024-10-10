@@ -3,7 +3,7 @@
 @section('content')
 
 <content>
-    <h1 class="text-center font-bold text-4xl my-10 uppercase">Open activiteiten</h1>
+    <h1 class="text-center font-bold text-4xl my-10 uppercase">Activiteiten</h1>
 
     <div class="flex justify-center">
         <section class="cards block md:grid md:grid-cols-2 lg:grid-cols-3 my-10 gap-10">

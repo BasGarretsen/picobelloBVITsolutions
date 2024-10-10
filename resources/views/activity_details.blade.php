@@ -30,7 +30,7 @@
                 <li class="flex items-center"><span class="material-icons">restaurant</span>: <span class="text-black font-normal ml-2">{{ $activity->including_food }}</span></li>
                 <li class="flex items-center"><span class="material-icons">schedule</span>: <span class="text-black font-normal ml-2">{{ $activity->start_time }}</span></li>
                 <li class="flex items-center"><span class="material-icons">alarm_off</span>: <span class="text-black font-normal ml-2">{{ $activity->end_time }}</span></li>
-                <li class="flex items-center"><span class="material-icons">euro</span>: <span class="text-black font-normal ml-2">{{ number_format($activity->price, 2) }}</span></li>
+                <li class="flex items-center"><span class="material-icons">euro </span>: <span class="text-black font-normal ml-2"> €{{ number_format($activity->price, 2) }}</span></li>
                 <li class="flex items-center"><span class="material-icons">group</span>: <span class="text-black font-normal ml-2">{{ $activity->maximum_number_of_participants }}</span></li>
                 <li class="flex items-center"><span class="material-icons">person</span>: <span class="text-black font-normal ml-2">{{ $activity->minimum_number_of_participants }}</span></li>
                 <li class="flex items-center"><span class="material-icons">edit_document</span>: <span class="text-black font-normal ml-2">{{ $registration_count }}</span></li>
