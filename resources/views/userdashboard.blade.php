@@ -79,10 +79,12 @@
                         <a href="{{ route('user.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900"><span class="material-icons">edit</span></a>
                     </td>
                     <td class="px-6 py-4">
-                        <form action="{{ route('user.destroy', $user->id) }}" method="POST">
+                        <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="mb-0" onsubmit="return confirmDelete(event)">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900"><span class="material-icons">delete</span></button>
+                            <button type="submit" onclick="event.stopPropagation();" class="text-red-600 hover:text-red-900">
+                                <span class="material-icons">delete</span>
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -93,3 +95,16 @@
 </div>
 
 @endsection
+
+<script>
+
+    function confirmDelete(event) {
+        // Bevestigingsmelding
+        const userConfirmed = confirm("Weet u zeker dat u deze activiteit wilt verwijderen?");
+        if (!userConfirmed) {
+            event.preventDefault();
+            return false;
+        }
+        return true;
+    }
+</script>
