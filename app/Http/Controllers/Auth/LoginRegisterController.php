@@ -71,7 +71,7 @@ class LoginRegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect()->route('dashboard')
+        return redirect()->route('userdashboard')
             ->withSuccess('Account aangemaakt!');
     }
 

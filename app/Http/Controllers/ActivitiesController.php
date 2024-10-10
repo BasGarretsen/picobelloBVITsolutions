@@ -174,7 +174,7 @@ class ActivitiesController extends Controller
             'price' => 'required|numeric',
             'maximum_participants' => 'required|numeric',
             'minimum_participants' => 'required|numeric',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,webp|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
@@ -241,7 +241,7 @@ class ActivitiesController extends Controller
             'price' => 'sometimes|required',
             'maximum_number_of_participants' => 'sometimes|required',
             'minimum_number_of_participants' => 'sometimes|required',
-            'image' => 'sometimes|required',
+            'image' => 'sometimes|required|image|mimes:jpeg,png,webp|max:2048',
         ];
 
         $this->validate($request, $rules);

@@ -22,7 +22,7 @@
         </div>
 
         <div class="mb-5">
-            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white"><span class="material-icons">pin_drop</span>Locatie</label>
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 text-white">Locatie</label>
             <input type="text" id="location" name="location" placeholder="Location" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
@@ -51,9 +51,10 @@
             <input type="text" id="maximum_participants" placeholder="Maximum participants" name="maximum_participants" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div>
 
-        <div class="mb-5">
-            <label for="image" class="block mb-2 text-sm font-medium text-gray-900 text-white">Foto</label>
-            <input type="file" id="image" name="image" class="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+        <div>
+            <label for="image" class="block mb-2 text-sm font-medium dark:text-white">Upload Image</label>
+            <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/webp" class="text-black border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            <p id="file-error" class="text-red-600 text-sm mt-2 hidden">Please upload a valid image file (JPEG, PNG, WEBP).</p>
         </div>
 
         <div class="mb-5">
@@ -79,3 +80,18 @@
 </form>
 
 @endsection
+
+<script>
+    document.getElementById('image').addEventListener('change', function() {
+        const file = this.files[0];
+        const errorText = document.getElementById('file-error');
+        const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
+
+        if (file && !validTypes.includes(file.type)) {
+            errorText.classList.remove('hidden');
+            this.value = '';
+        } else {
+            errorText.classList.add('hidden');
+        }
+    });
+</script>
