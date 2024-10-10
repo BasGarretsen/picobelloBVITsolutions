@@ -117,7 +117,7 @@ class ActivitiesController extends Controller
             ]);
 
             foreach ($registrations as $key => $registration) {
-                if (Str::upper($registration->email) === Str::upper($validateData['email'])||Str::upper($registration->firstname) === Str::upper($validateData['firstname'])&&Str::upper($registration->lastname) === Str::upper($validateData['lastname'])) {
+                if (Str::upper($registration->email) === Str::upper($validateData['email'])) {
                     session()->flash('error', 'Je bent al aangemeld voor deze activiteit!');
                     return redirect()->route('activitydetails', ['activityId' => $activityId]);
                 }
